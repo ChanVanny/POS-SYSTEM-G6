@@ -275,3 +275,61 @@ h3{
     width: 10%;
     height: 4%;
 }
+
+.side-bar-bashright{
+    width: 100%;
+}
+.stock-content{
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 20px;
+}
+.name-pros{
+    margin-bottom: 40px;
+}
+#stock{
+    border: 1px solid rgb(75, 67, 68);
+    padding: 15px 30px 15px 30px;
+
+}
+.header-dash{
+    padding: 24px;
+}
+.header{
+    display: flex;
+    justify-content: space-between;
+}
+table{
+    width: 90%;
+    margin: 20px auto;
+}
+thead{
+    background-color: rgba(0, 0, 0, 0.705);
+    color: white;
+}
+table, th, td{
+    border: 1px solid rgb(132, 110, 110) ;
+    border-collapse: collapse;
+}
+th, td{
+    padding: 10px;
+}
+th{
+    font-size: larger;
+   
+}
+.product-sold{
+    margin: 40px 0 0 40px;
+}
+.card_button{
+    text-align: end;
+    margin-right: 55px;
+}
+#add-product{
+    padding: 7px;
+    background-color: #d63384
+    ;
+    color: white;
+    border: 1px solid orange;
+    border-radius: 5px;
+}
