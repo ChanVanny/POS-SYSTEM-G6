@@ -276,6 +276,8 @@ h3{
     height: 4%;
 }
 
+
+/* ==============sidebar-right========= */
 .side-bar-bashright{
     width: 100%;
 }
@@ -334,7 +336,20 @@ th{
     border-radius: 5px;
 }
 
+/* ======add======= */
 
+#total{
+    display: flex;
+    justify-content: end;
+    margin: 20px;
+}
+.order{
+    display: flex;
+    margin: auto;
+    padding: 7px 20px 7px 20px;
+    text-align: center;
+    background-color: rgb(231, 107, 127);
+}
 
 
 /* ==============category=============== */
