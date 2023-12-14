@@ -275,3 +275,46 @@ h3{
     width: 10%;
     height: 4%;
 }
+
+
+/* ==============category=============== */
+
+.card-category{
+    display: flex;
+    justify-content: space-between;
+}
+
+.search{
+    margin: 50px 50px 0px 0;
+    display: flex;
+    width: 50%;
+}
+.product-sold{
+    width: 50%;
+}
+#search-category{
+    width: 80%;
+    padding: 3px;
+    border-radius: 10px 0 0 10px;
+    border: none;
+  
+}
+#button-addon{
+    padding: 3px;
+    width: 8%;
+    border-radius: 0px 10px 10px 0;
+    border: none;
+}
+/* #get-btn-add{
+    background-color: #d63384;
+} */
+#icon-add{
+    padding: 8px;
+    background-color: #d63384;
+    color: white;
+    border: 1px solid orange;
+    border-radius: 6px;
+    width: 15%;
+    margin: 30px;
+}
+
