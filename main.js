@@ -135,34 +135,39 @@ function addProduct() {
     saveLocalstorage();
     displayProduct();
 
-    console.log(datass)
+    // console.log(datass)
 
 }
 
 // =============todisplay===============
+
 function displayCard(e) {
+    let ul = document.querySelector('#order-list')
 
     console.log(e.target.parentElement);
+    let card_index = e.target.parentElement.dataset.index;
     let name_product = e.target.parentElement.children[0].children[0].textContent;
     let price_unique = e.target.parentElement.children[1].children[0].children[1].textContent;
 
-    let ul = document.querySelector('#order-list')
+    
 
     let li = document.createElement('li');
     li.classList.add('list');
-
-    // let span_id =document.createElement('span');
-    // span_id.setAttribute('id', 'detail');
 
     let span_name = document.createElement('span');
     span_name.setAttribute('id', 'detail');
     span_name.textContent = name_product;
 
     let input_select = document.createElement('input');
-    input_select.setAttribute('id', 'detail');
+    input_select.setAttribute('id', 'details');
     input_select.setAttribute('class', 'detail');
     input_select.type = 'number';
     input_select.value = 1;
+
+    input_select.addEventListener('change',getQuatities);
+
+    // let qauntity =document.querySelector('#details')
+    // console.log(qauntity)
 
     let span_price = document.createElement('span');
     span_price.setAttribute('id', 'detail');
@@ -179,11 +184,38 @@ function displayCard(e) {
     ul.appendChild(li);
     li.appendChild(span_name);
     li.appendChild(input_select);
-    li.appendChild(span_price)
-    li.appendChild(icon_delete)
+    li.appendChild(span_price);
+    li.appendChild(icon_delete);
+    
+  
 
 }
 
-// saveLocalstorage()
+let tdtotalprice = document.querySelector('#total');
+let orderlist = document.querySelector('#order-list')
+
+// function getTotal(){
+    
+//     let tototal =0;
+//     for (let Element of orderlist){
+//         // let costprice = Element.lastElementChild.textContent;
+//         // let unitprice = costprice.replace("$", "");
+//         // tototal +=parseInt(unitprice)
+//         console.log(Element)
+//     }
+//     // total.textContent=tototal + "$";
+// }
+
+function getQuatities(e){
+    let qualities = e.target.value;
+    let tdtotal =e.target.nextElementSibling;
+    // let tdtotal =e.target.closest('td').nextElementSibling;
+    let unitprice = tdtotal.textContent.replace("$", ""); 
+    tdtotalprice.textContent= 'Total: ' +parseInt(unitprice) * parseInt(qualities)+'$';
+
+
+}
+
+
 reload();
 
