@@ -1,6 +1,9 @@
 let card_pro = document.querySelector('.card-products');
 let dialog_container = document.querySelector('.dialog_container')
 let sideba_center = document.querySelector('.side-bar-center');
+// let btn_search = document.querySelector('#button-addon2');
+let search_input = document.querySelector('.form-control');
+
 let datass = [];
 
 
@@ -216,6 +219,22 @@ function getQuatities(e){
 
 }
 
+search_input.addEventListener('keyup',toSearchProduct);
+
+function toSearchProduct(e){
+    let text =e.target.value;
+    let pronames = document.querySelectorAll('.name-pro');
+    
+    for ( let proname of pronames){
+        let name_pro = proname.children[0].textContent;
+        console.log(proname.parentElement)
+        if (name_pro.indexOf(text) !== -1){
+            proname.parentElement.style.display = ""
+        }else{
+            proname.parentElement.style.display = "none"
+        }
+    }
+}
 
 reload();
 
