@@ -28,7 +28,8 @@ function reload() {
 let input_id = document.querySelector('#id');
 let input_name = document.querySelector('#name')
 let input_price = document.querySelector('#price');
-let input_quatity = document.querySelector('#quantity');
+let input_quantity = document.querySelector('#quantity');
+let input_category = document.querySelector('#category');
 
 let onAdd = () => {
     // btn_dialog.lastElementChild.textContent = "Add Product";
@@ -124,7 +125,8 @@ function addProduct() {
         id: input_id.value,
         name: input_name.value,
         price: input_price.value,
-        qauntity: input_quatity.value,
+        qauntity: input_quantity.value,
+        category:input_category.value,
     };
 
     datass.push(data);
@@ -132,6 +134,7 @@ function addProduct() {
     saveLocalstorage();
     displayProduct();
     
+    console.log(datass)
     
 }
 
