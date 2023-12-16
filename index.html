@@ -91,6 +91,16 @@
                         <p class="error_price error" style="display: none;">Invalid Number*</p>
                     </div>
                     <div class="input">
+                        <label for="kind-product">category</label>
+                        <select name="category" id="category">
+                            <option disabled selected>category</option>
+                            <option value="drink">Drink</option>
+                            <option value="cookie">Cookie</option>
+                            <option value="fruit">Fruit</option>
+                        </select>
+                        <p class="error_size error" style="display: none;">Choose Size*</p>
+                    </div>
+                    <div class="input">
                         <label for="quantity">Quantity</label>
                         <select name="quantity" id="quantity">
                             <option disabled selected>Number</option>
@@ -98,8 +108,11 @@
                             <option value="8">8</option>
                             <option value="20">20</option>
                             <option value="12">12</option>
-                            <option value="12">23</option>
-                            <option value="12">50</option>
+                            <option value="23">23</option>
+                            <option value="50">50</option>
+                            <option value="50">100</option>
+                            <option value="50">10</option>
+                            <option value="50">30</option>
                         </select>
                         <p class="error_size error" style="display: none;">Choose Size*</p>
                     </div>
@@ -120,6 +133,7 @@
                     <hr>
                     <ul id="order-list" class="list-unstyled">
                         <!-- <li class="list">
+                            
                             <span id="detail">Trumoo</span>
                             <input id="detail" class="detail" type="number" value="1">
                             <span id="detail" class="price ">$ 0.99</span>

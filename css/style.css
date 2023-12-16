@@ -268,7 +268,7 @@ label {
 }
 .name-pro{
     padding: 8px;
-    border: 1px solid orange;
+    border: 1px solid black;
     border-radius: 8px 8px 0 0;
 }
 .quantity{
@@ -353,6 +353,7 @@ h3{
 .detail{
     width: 10%;
     height: 4%;
+    margin-top:20px;
 }
 
 
@@ -430,6 +431,9 @@ th{
     background-color: rgb(231, 107, 127);
 }
 
+#icon-delete{
+    margin-top: 17px;
+}
 
 /* ==============category=============== */
 

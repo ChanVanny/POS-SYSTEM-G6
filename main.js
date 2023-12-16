@@ -21,21 +21,22 @@ function reload() {
     let productstorage = JSON.parse(localStorage.getItem('datass'))
     if (productstorage != null) {
         datass = productstorage;
-        // addProduct();
+        addProduct();
     }
 
 }
 let input_id = document.querySelector('#id');
 let input_name = document.querySelector('#name')
 let input_price = document.querySelector('#price');
-let input_quatity = document.querySelector('#quantity');
+let input_quantity = document.querySelector('#quantity');
+let input_category = document.querySelector('#category');
 
 let onAdd = () => {
     // btn_dialog.lastElementChild.textContent = "Add Product";
     show(dialog_container);
 }
 
-function displayProduct(){
+function displayProduct() {
     card_pro.remove()
     card_pro = document.createElement('div');
     card_pro.classList.add('card-products');
@@ -47,10 +48,10 @@ function displayProduct(){
         card.dataset.index = index;
         // card.addEventListener('click',createCard);
 
-        let h4 =document.createElement('h4');
+        let h4 = document.createElement('h4');
         h4.classList.add('name-pro')
         let bold = document.createElement('b');
-        bold.textContent=datass[index].name;
+        bold.textContent = datass[index].name;
 
         let text_content = document.createElement('div');
         text_content.classList.add('text-content-card');
@@ -59,29 +60,32 @@ function displayProduct(){
         div.classList.add('quantity');
 
         let pp = document.createElement('p');
-        let span =document.createElement('span');
+        let span = document.createElement('span');
         span.classList.add('quan');
-        span.textContent='quantity :';
+        span.textContent = 'quantity :';
 
-        let span_num =document.createElement('span');
+        let span_num = document.createElement('span');
         span_num.classList.add('num')
-        span_num.textContent=datass[index].qauntity;
+        span_num.textContent = datass[index].qauntity;
 
-        let p =document.createElement('p');
+        let p = document.createElement('p');
         p.classList.add('price')
         p.textContent = datass[index].price + '$';
 
 
         let btn = document.createElement('button');
-        btn.setAttribute('id','add-card');
-        btn.textContent='View';
+        btn.setAttribute('id', 'add-card');
+        btn.textContent = 'View';
 
+        btn.addEventListener('click', displayCard);
 
         let icon_delete = document.createElement('i');
-        icon_delete.setAttribute('id','icon-delete');
-        icon_delete.className='fa fa-trash';
-        icon_delete.style.fontSize='25px';
-        icon_delete.style.color='red';
+        icon_delete.setAttribute('id', 'icon-delete');
+        icon_delete.className = 'fa fa-trash';
+        icon_delete.style.fontSize = '25px';
+        icon_delete.style.color = 'red';
+
+        icon_delete.addEventListener('click', delect);
 
 
         card_pro.appendChild(card);
@@ -101,10 +105,18 @@ function displayProduct(){
 }
 
 
+function delect(e) {
+    let index = e.target.closest('.card').dataset.index;
+    datass.splice(index, 1);
+    saveLocalstorage();
+    displayProduct();
+}
+
+
 // =========== Cancel function ==========
 let cancel = () => {
     hide(dialog_container);
-    reload();
+    // reload();
 }
 
 
@@ -114,18 +126,96 @@ function addProduct() {
         id: input_id.value,
         name: input_name.value,
         price: input_price.value,
-        qauntity: input_quatity.value,
+        qauntity: input_quantity.value,
+        category: input_category.value,
     };
 
     datass.push(data);
 
     saveLocalstorage();
     displayProduct();
+
+    // console.log(datass)
+
+}
+
+// =============todisplay===============
+
+function displayCard(e) {
+    let ul = document.querySelector('#order-list')
+
+    console.log(e.target.parentElement);
+    let card_index = e.target.parentElement.dataset.index;
+    let name_product = e.target.parentElement.children[0].children[0].textContent;
+    let price_unique = e.target.parentElement.children[1].children[0].children[1].textContent;
+
     
+
+    let li = document.createElement('li');
+    li.classList.add('list');
+
+    let span_name = document.createElement('span');
+    span_name.setAttribute('id', 'detail');
+    span_name.textContent = name_product;
+
+    let input_select = document.createElement('input');
+    input_select.setAttribute('id', 'details');
+    input_select.setAttribute('class', 'detail');
+    input_select.type = 'number';
+    input_select.value = 1;
+
+    input_select.addEventListener('change',getQuatities);
+
+    // let qauntity =document.querySelector('#details')
+    // console.log(qauntity)
+
+    let span_price = document.createElement('span');
+    span_price.setAttribute('id', 'detail');
+    span_price.setAttribute('class', 'price');
+    span_price.textContent = price_unique;
+
+
+    let icon_delete = document.createElement('i');
+    icon_delete.setAttribute('id', 'icon-delete');
+    icon_delete.className = 'fa fa-trash';
+    icon_delete.style.fontSize = '25px';
+    icon_delete.style.color = 'red';
+    // stor_card.appendChild(ul);
+    ul.appendChild(li);
+    li.appendChild(span_name);
+    li.appendChild(input_select);
+    li.appendChild(span_price);
+    li.appendChild(icon_delete);
     
+  
+
+}
+
+let tdtotalprice = document.querySelector('#total');
+let orderlist = document.querySelector('#order-list')
+
+// function getTotal(){
+    
+//     let tototal =0;
+//     for (let Element of orderlist){
+//         // let costprice = Element.lastElementChild.textContent;
+//         // let unitprice = costprice.replace("$", "");
+//         // tototal +=parseInt(unitprice)
+//         console.log(Element)
+//     }
+//     // total.textContent=tototal + "$";
+// }
+
+function getQuatities(e){
+    let qualities = e.target.value;
+    let tdtotal =e.target.nextElementSibling;
+    // let tdtotal =e.target.closest('td').nextElementSibling;
+    let unitprice = tdtotal.textContent.replace("$", ""); 
+    tdtotalprice.textContent= 'Total: ' +parseInt(unitprice) * parseInt(qualities)+'$';
+
+
 }
 
 
-// saveLocalstorage()
 reload();
 
