@@ -21,7 +21,7 @@ function reload() {
     let productstorage = JSON.parse(localStorage.getItem('datass'))
     if (productstorage != null) {
         datass = productstorage;
-        // addProduct();
+        addProduct();
     }
 
 }
@@ -83,6 +83,8 @@ function displayProduct(){
         icon_delete.style.fontSize='25px';
         icon_delete.style.color='red';
 
+        icon_delete.addEventListener('click',delect);
+
 
         card_pro.appendChild(card);
         card.appendChild(h4);
@@ -101,10 +103,18 @@ function displayProduct(){
 }
 
 
+function delect(e){
+    let index = e.target.closest('.card').dataset.index;
+    datass.splice(index,1);
+    saveLocalstorage();
+    displayProduct();
+}
+
+
 // =========== Cancel function ==========
 let cancel = () => {
     hide(dialog_container);
-    reload();
+    // reload();
 }
 
 
