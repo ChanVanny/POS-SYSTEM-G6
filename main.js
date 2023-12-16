@@ -150,7 +150,6 @@ function displayCard(e) {
     let price_unique = e.target.parentElement.children[1].children[0].children[1].textContent;
 
     
-
     let li = document.createElement('li');
     li.classList.add('list');
 
@@ -175,17 +174,20 @@ function displayCard(e) {
     span_price.textContent = price_unique;
 
 
-    let icon_delete = document.createElement('i');
-    icon_delete.setAttribute('id', 'icon-delete');
-    icon_delete.className = 'fa fa-trash';
-    icon_delete.style.fontSize = '25px';
-    icon_delete.style.color = 'red';
+    let icon_deletes = document.createElement('i');
+    icon_deletes.setAttribute('id', 'icon-delete');
+    icon_deletes.className = 'fa fa-trash';
+    icon_deletes.style.fontSize = '25px';
+    icon_deletes.style.color = 'red';
+
+    icon_deletes.addEventListener('click',deleteDetail);
+
     // stor_card.appendChild(ul);
     ul.appendChild(li);
     li.appendChild(span_name);
     li.appendChild(input_select);
     li.appendChild(span_price);
-    li.appendChild(icon_delete);
+    li.appendChild(icon_deletes);
     
   
 
@@ -194,18 +196,6 @@ function displayCard(e) {
 let tdtotalprice = document.querySelector('#total');
 let orderlist = document.querySelector('#order-list')
 
-// function getTotal(){
-    
-//     let tototal =0;
-//     for (let Element of orderlist){
-//         // let costprice = Element.lastElementChild.textContent;
-//         // let unitprice = costprice.replace("$", "");
-//         // tototal +=parseInt(unitprice)
-//         console.log(Element)
-//     }
-//     // total.textContent=tototal + "$";
-// }
-
 function getQuatities(e){
     let qualities = e.target.value;
     let tdtotal =e.target.nextElementSibling;
@@ -213,7 +203,10 @@ function getQuatities(e){
     let unitprice = tdtotal.textContent.replace("$", ""); 
     tdtotalprice.textContent= 'Total: ' +parseInt(unitprice) * parseInt(qualities)+'$';
 
+}
 
+function deleteDetail(e){
+   e.target.closest('li').remove();
 }
 
 
