@@ -1,0 +1,124 @@
+
+
+body{
+background-color: rgba(227, 222, 222, 0.909);
+}
+.show-category{
+    padding: 50px;
+}
+
+.add-category, .container-table{
+    padding-top: 25px;
+}
+.header-show{
+    flex: 2;
+}
+.show-category1{
+    display: flex;
+}
+.search-button input{
+    flex: 2;
+    padding: 10px;
+    border:none;
+    border-radius: 8px;
+    width: 300px;
+
+}
+
+hr{
+    margin-top: 10px;
+   border: black solid 1px;
+}
+
+.add-category button{
+    padding: 15px;
+    width: 200px;
+    border: none;
+    color: white;
+    font-size:large;
+    background-color:#d63384;
+}
+
+table{
+    width: 100%;
+}
+thead{
+    background-color: black;
+    color: white;
+}
+table, th, td{
+    border: 1px solid black ;
+    border-collapse: collapse;
+}
+th, td{
+    padding: 15px;
+    text-align: center;
+}
+
+td span i{
+    background-color: #d63384;
+    padding: 10px;
+    border-radius: 50%;
+    color: white;
+    font-size: larger;
+}
+
+
+/* ......../category-form/......... */
+
+.show-category1 button{
+    padding: 10px;
+    width: 100px;
+    border: none;
+    background-color: #d63384;
+    color: white;
+    font-size: large;
+}
+.category-form{
+    padding: 50px;
+}
+.form{
+    display: flex;
+    justify-content: center;
+    border: solid black 1px;
+    border-radius: 10px;
+    width: 500px;
+    margin: auto;
+    height: 300px;
+    margin-top: 50px;
+}
+
+form{
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.name{
+    display: flex;
+    flex-direction: column;
+    margin-top: 15px;
+}
+.name input{
+    padding: 10px;
+    width: 300px;
+    border-radius: 7px;
+}
+form button{
+    padding: 10px;
+    border-radius: 7px;
+    margin-top: 10px;
+    border: none;
+    background-color: #d63384;
+    color: white;
+    font-size: large;
+
+}
+
+.show{
+    display: block;
+}
+
+.hide{
+    display: none;
+}

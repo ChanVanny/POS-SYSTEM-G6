@@ -6,7 +6,7 @@
 }
 
 body {
-    background-color: #69576088;
+    background-color: #69576088; 
 }
 
 #text_input {
@@ -301,8 +301,8 @@ h3{
     display: flex;
     justify-content: space-between;
 }
-table{
-    width: 90%;
+/* table{
+    width: 100%;
     margin: 20px auto;
 }
 thead{
@@ -319,7 +319,7 @@ th, td{
 th{
     font-size: larger;
    
-}
+} */
 .product-sold{
     margin: 40px 0 0 40px;
 }

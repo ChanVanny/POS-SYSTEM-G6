@@ -1,20 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>category</title>
     <link rel="stylesheet" href="../../css/style.css">
-    <script src="main.js" defer></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="category.css">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.4.0/fonts/remixicon.css" rel="stylesheet">
+    <script src="category.js" defer></script>
 </head>
 
 <body>
-        <div class="container">
-            <div class="show_document">
-                <div class="side-bar-left">
-                    <img src="../../images/logo.png" class="image_logo" width="55px" alt="logo">
-                    <ul id="menu">
+    <div class="container">
+        <div class="show_document">
+            <div class="side-bar-left">
+                <img src="../../images/logo.png" class="image_logo" width="55px" alt="logo">
+                <ul id="menu">
                     <li><i class="fa fa-shopping-basket" style="font-size:15px;color:rgb(216, 130, 145);"></i><a
                             href="../dashborad/dashbord.html">Dashborad</a></li>
                     <li><i class="fa fa-shopping-cart" style="font-size:15px;color:rgb(216, 130, 145);"></i><a
@@ -33,10 +36,62 @@
                         <i class="	fa fa-cart-arrow-down" id="iconcard" style="font-size:20px;color:black;"></i>
                     </div>
                 </div>
-                    
+                <div class="show-category">
+                    <div class="show-category1">
+                        <div class="header-show">
+                            <h2>Top 5 of category</h3>
+                        </div>
+                        <div class="search-button">
+                            <input type="search" placeholder="Search category name">
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="add-category">
+                        <button><i class="ri-add-circle-fill"></i><b>New Category</b></button>
+                    </div>
+                    <div class="container-table">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Category ID</th>
+                                    <th>Category Name</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            </tbody>
+                        </table>
+                    </div>
+
+                </div>
+                <div class="category-form hide">
+                    <div class="show-category1">
+                        <div class="header-show">
+                            <h2>Create Category</h3>
+                        </div>
+                        <button class="button-view">
+                            View
+                        </button>
+                    </div>
+                    <hr>
+                    <div class="form">
+                        <form action="">
+                            <div class="name">
+                                <label for="name">Name</label>
+                                <input type="text" id="name">
+                            </div>
+                            <div class="name">
+                                <label for="name">Description</label>
+                                <input type="text" id="description">
+                            </div>
+                            <button id="save">Save</button>
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>
+    </div>
 
 </body>
+
 </html>
