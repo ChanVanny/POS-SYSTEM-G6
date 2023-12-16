@@ -47,15 +47,16 @@
                 </div>
 
                 <div class="content">
+                    <button class="create-new-card" onclick="onAdd()">Add Product</button>
                     <div class="input-group">
                         <input type="text" class="form-control" placeholder="biscuits....">
-                        <button class="btn " type="button" id="button-addon2"><i class="fa fa-search"
+                        <button class="btnn " type="button" id="button-addon2"><i class="fa fa-search"
                                 style="font-size:15px;color:rgb(216, 130, 145);"></i></button>
                     </div>
                 </div>
                 <div class="card-products" id="pills-home" role="piepanel" aria-labelledby="pills-home-pie">
-                    <div class="card" id="cards">
-                        <!-- <img src="images/drink1.png" alt="Avatar" style="width:100%"> -->
+                    <!-- <div class="card" id="cards">
+                       
                         <h4 class="name-pro"><b>RruMoo</b></h4>
                         <div class="text-content-card">
                             <div class="quantity">
@@ -64,11 +65,51 @@
                             </div>
                         </div>
                         <button id="add-card">add to card</button>
-                    </div>
+                    </div> -->
 
                 </div>
 
             </div>
+            <!-- ======= Dialog ===== -->
+            <div class="dialog_container">
+                <dialog open>
+                    <h1>Add Product</h1>
+                    <div class="product_id input">
+                        <label for="id">ID</label>
+                        <input type="text" name="id" id="id" placeholder="Product id..." maxlength="25">
+                        <p class="error_id error" style="display: none;">Invalid ID*</p>
+                    </div>
+                    <div class="product-name input">
+                        <label for="product-name">Name</label>
+                        <input type="text" name="name" id="name" placeholder="Product Name... " maxlength="25">
+                        <p class="error_name error" style="display: none;">Invalid Name*</p>
+
+                    </div>
+                    <div class="product_price input">
+                        <label for="price">Price</label>
+                        <input type="number" name="price" id="price" min="1" placeholder="Your price ...">
+                        <p class="error_price error" style="display: none;">Invalid Number*</p>
+                    </div>
+                    <div class="input">
+                        <label for="quantity">Quantity</label>
+                        <select name="quantity" id="quantity">
+                            <option disabled selected>Number</option>
+                            <option value="5">5</option>
+                            <option value="8">8</option>
+                            <option value="20">20</option>
+                            <option value="12">12</option>
+                            <option value="12">23</option>
+                            <option value="12">50</option>
+                        </select>
+                        <p class="error_size error" style="display: none;">Choose Size*</p>
+                    </div>
+                    <div class="card_button btn_dialog">
+                        <button type="button" onclick="cancel()">Cancel</button>
+                        <button type="button" onclick="addProduct()">Add Product</button>
+                    </div>
+                </dialog>
+            </div>
+
             <div class="side-bar-right">
                 <div class="header2">
                     <i class="fa fa-sign-out" id="iconlogout" style="font-size:20px;color:black;"></i>
@@ -78,17 +119,15 @@
                     <h3>Current Order</h3>
                     <hr>
                     <ul id="order-list" class="list-unstyled">
-                        <li class="list">
-                            <!-- <img src="images/drink1.png" id="product-order"> -->
+                        <!-- <li class="list">
                             <span id="detail">Trumoo</span>
                             <input id="detail" class="detail" type="number" value="1">
                             <span id="detail" class="price ">$ 0.99</span>
-                        </li>
+                        </li> -->
                     </ul>
                     <h4 id="total">Total: <span class="total-price">0</span></h4>
-                
-                <button class="order">Checkout</button>
 
+                    <button class="order">Checkout</button>
                 </div>
                 
 
