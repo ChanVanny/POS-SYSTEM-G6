@@ -21,7 +21,7 @@ function reload() {
     let productstorage = JSON.parse(localStorage.getItem('datass'))
     if (productstorage != null) {
         datass = productstorage;
-        // addProduct();
+        addProduct();
     }
 
 }
@@ -104,7 +104,7 @@ function displayProduct(){
 // =========== Cancel function ==========
 let cancel = () => {
     hide(dialog_container);
-    reload();
+    // reload();
 }
 
 
