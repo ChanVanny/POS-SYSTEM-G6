@@ -280,21 +280,18 @@ label {
     margin-left: 5px;
     padding-bottom: 10px;
 }
-#add-card{
-    /* width: 30%;
-     */
-     background-color: black;
-     color: white;
-     padding: 4px;
-     /* margin-bottom: 5px; */
-     border-radius: 8px;
-     /* margin-bottom: 60px; */
-     margin-left: 30px;
-     padding: bottom 0%;
-     /* border-radius: var(--main-radius);
-     padding: var(--btn-padding); */
-     z-index: 1;
-     cursor: pointer;
+#add-card {
+
+    background-color: black;
+    color: white;
+    padding: 4px;
+    border-radius: 8px;
+    margin-left: 20px;
+    margin-right: 20px;
+    padding: bottom 0%;
+    z-index: 1;
+    cursor: pointer;
+    width: 40%;
 
 }
 #add-card:first-child{
