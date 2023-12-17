@@ -147,9 +147,13 @@ function addProduct() {
 // =============todisplay===============
 
 function displayCard(e) {
+    let productstorage = JSON.parse(localStorage.getItem('datass'));
+    // for (let valueObject of productstorage){
+    //     console.log(valueObject)
+    // }
+
     let ul = document.querySelector('#order-list')
 
-    console.log(e.target.parentElement);
     let card_index = e.target.parentElement.dataset.index;
     let name_product = e.target.parentElement.children[0].children[0].textContent;
     let price_unique = e.target.parentElement.children[1].children[0].children[1].textContent;
@@ -174,10 +178,15 @@ function displayCard(e) {
     // let qauntity =document.querySelector('#details')
     // console.log(qauntity)
 
-    let span_price = document.createElement('span');
-    span_price.setAttribute('id', 'detail');
-    span_price.setAttribute('class', 'price');
-    span_price.textContent = price_unique;
+    let span_price1 = document.createElement('span');
+    span_price1.setAttribute('id', 'detail');
+    span_price1.setAttribute('class', 'price');
+    span_price1.textContent = price_unique;
+
+    let span_price2 = document.createElement('span');
+    span_price2.setAttribute('id', 'detail');
+    span_price2.setAttribute('class', 'price');
+    span_price2.textContent = price_unique;
 
 
     let icon_delete = document.createElement('i');
@@ -189,7 +198,8 @@ function displayCard(e) {
     ul.appendChild(li);
     li.appendChild(span_name);
     li.appendChild(input_select);
-    li.appendChild(span_price);
+    li.appendChild(span_price1);
+    li.appendChild(span_price2);
     li.appendChild(icon_delete);
     
   
@@ -197,29 +207,40 @@ function displayCard(e) {
 }
 
 let tdtotalprice = document.querySelector('#total');
+let totalprice = document.querySelector('.total-price');
 let orderlist = document.querySelector('#order-list')
+let arraycard = [];
 
-// function getTotal(){
-    
-//     let tototal =0;
-//     for (let Element of orderlist){
-//         // let costprice = Element.lastElementChild.textContent;
-//         // let unitprice = costprice.replace("$", "");
-//         // tototal +=parseInt(unitprice)
-//         console.log(Element)
-//     }
-//     // total.textContent=tototal + "$";
+
+// function saveLocalstorage() {
+//     localStorage.setItem('arraycard', JSON.stringify(arraycard));
 // }
 
+function getTotal(){
+    console.log(orderlist)
+    // let tototal =0;
+    // for (let Element of orderlist){
+        
+    //     console.log(Element)
+    // }
+    // total.textContent=tototal + "$";
+}
+getTotal()
 function getQuatities(e){
+    // let gottotal =0;
     let qualities = e.target.value;
     let tdtotal =e.target.nextElementSibling;
-    // let tdtotal =e.target.closest('td').nextElementSibling;
+    let lastprice =e.target.nextElementSibling.nextElementSibling;
     let unitprice = tdtotal.textContent.replace("$", ""); 
-    tdtotalprice.textContent= 'Total: ' +parseInt(unitprice) * parseInt(qualities)+'$';
+    lastprice.textContent=parseInt(unitprice) * parseInt(qualities) + '$';
+    // gottotal += tdtotalprice.children[0].textContent.replace('$','');
+    // console.log(gottotal)
 
-
+    // totalprice.textContent = tdtotal.replace('$','');
+    // console.log(totalprice)
+    
 }
+
 
 search_input.addEventListener('keyup',toSearchProduct);
 
@@ -229,7 +250,6 @@ function toSearchProduct(e){
     
     for ( let proname of pronames){
         let name_pro = proname.children[0].textContent;
-        console.log(proname.parentElement)
         if (name_pro.indexOf(text) !== -1){
             proname.parentElement.style.display = ""
         }else{
