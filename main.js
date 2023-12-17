@@ -46,9 +46,11 @@ function displayProduct() {
 
     for (let index in datass) {
 
-        let card = document.createElement('card');
+        let card = document.createElement('div');
         card.classList.add('card');
+        card.setAttribute('id',datass[index].category);
         card.dataset.index = index;
+        
         // card.addEventListener('click',createCard);
 
         let h4 = document.createElement('h4');
@@ -232,6 +234,21 @@ function toSearchProduct(e){
             proname.parentElement.style.display = ""
         }else{
             proname.parentElement.style.display = "none"
+        }
+    }
+}
+
+function filterOpjects(name){
+    let pronames = document.querySelectorAll('.name-pro');
+    for (let proname of pronames){
+        let category = proname.parentElement.id;
+        if ( category === name) {
+            proname.parentElement.style.display = '';
+        }else if (name === 'all'){
+            proname.parentElement.style.display = '';
+        }
+        else {
+            proname.parentElement.style.display = 'none';
         }
     }
 }
