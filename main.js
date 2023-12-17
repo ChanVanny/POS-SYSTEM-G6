@@ -48,9 +48,9 @@ function displayProduct() {
 
         let card = document.createElement('div');
         card.classList.add('card');
-        card.setAttribute('id',datass[index].category);
+        card.setAttribute('id', datass[index].category);
         card.dataset.index = index;
-        
+
         // card.addEventListener('click',createCard);
 
         let h4 = document.createElement('h4');
@@ -145,16 +145,21 @@ function addProduct() {
 }
 
 // =============todisplay===============
-
+let arraycart = [];
+productstorage = JSON.parse(localStorage.getItem('datass'));
+console.log(productstorage)
 function displayCard(e) {
+
+
+
+
     let ul = document.querySelector('#order-list')
 
-    console.log(e.target.parentElement);
     let card_index = e.target.parentElement.dataset.index;
     let name_product = e.target.parentElement.children[0].children[0].textContent;
     let price_unique = e.target.parentElement.children[1].children[0].children[1].textContent;
 
-    
+
 
     let li = document.createElement('li');
     li.classList.add('list');
@@ -169,7 +174,7 @@ function displayCard(e) {
     input_select.type = 'number';
     input_select.value = 1;
 
-    input_select.addEventListener('change',getQuatities);
+    input_select.addEventListener('change', getQuatities);
 
     // let qauntity =document.querySelector('#details')
     // console.log(qauntity)
@@ -183,6 +188,8 @@ function displayCard(e) {
     let icon_delete = document.createElement('i');
     icon_delete.setAttribute('id', 'icon-delete');
     icon_delete.className = 'fa fa-trash';
+
+
     icon_delete.style.fontSize = '25px';
     icon_delete.style.color = 'red';
     // stor_card.appendChild(ul);
@@ -191,16 +198,22 @@ function displayCard(e) {
     li.appendChild(input_select);
     li.appendChild(span_price);
     li.appendChild(icon_delete);
-    
-  
 
 }
+
+
+
+// function itemcardDetail(){
+//     let cart = {
+
+//     };
+// }
 
 let tdtotalprice = document.querySelector('#total');
 let orderlist = document.querySelector('#order-list')
 
 // function getTotal(){
-    
+
 //     let tototal =0;
 //     for (let Element of orderlist){
 //         // let costprice = Element.lastElementChild.textContent;
@@ -211,40 +224,40 @@ let orderlist = document.querySelector('#order-list')
 //     // total.textContent=tototal + "$";
 // }
 
-function getQuatities(e){
+function getQuatities(e) {
     let qualities = e.target.value;
-    let tdtotal =e.target.nextElementSibling;
+    let tdtotal = e.target.nextElementSibling;
     // let tdtotal =e.target.closest('td').nextElementSibling;
-    let unitprice = tdtotal.textContent.replace("$", ""); 
-    tdtotalprice.textContent= 'Total: ' +parseInt(unitprice) * parseInt(qualities)+'$';
+    let unitprice = tdtotal.textContent.replace("$", "");
+    tdtotalprice.textContent = 'Total: ' + parseInt(unitprice) * parseInt(qualities) + '$';
 
 
 }
 
-search_input.addEventListener('keyup',toSearchProduct);
+search_input.addEventListener('keyup', toSearchProduct);
 
-function toSearchProduct(e){
-    let text =e.target.value;
+function toSearchProduct(e) {
+    let text = e.target.value;
     let pronames = document.querySelectorAll('.name-pro');
-    
-    for ( let proname of pronames){
+
+    for (let proname of pronames) {
         let name_pro = proname.children[0].textContent;
         console.log(proname.parentElement)
-        if (name_pro.indexOf(text) !== -1){
+        if (name_pro.indexOf(text) !== -1) {
             proname.parentElement.style.display = ""
-        }else{
+        } else {
             proname.parentElement.style.display = "none"
         }
     }
 }
 
-function filterOpjects(name){
+function filterOpjects(name) {
     let pronames = document.querySelectorAll('.name-pro');
-    for (let proname of pronames){
+    for (let proname of pronames) {
         let category = proname.parentElement.id;
-        if ( category === name) {
+        if (category === name) {
             proname.parentElement.style.display = '';
-        }else if (name === 'all'){
+        } else if (name === 'all') {
             proname.parentElement.style.display = '';
         }
         else {
