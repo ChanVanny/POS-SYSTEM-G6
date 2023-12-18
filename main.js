@@ -171,7 +171,7 @@ function displayCard(e) {
     let name_product = e.target.parentElement.children[0].children[0].textContent;
     let price_unique = e.target.parentElement.children[1].children[0].children[1].textContent;
 
-
+    
     let li = document.createElement('li');
     li.classList.add('list');
 
@@ -201,19 +201,19 @@ function displayCard(e) {
     span_price2.textContent = "$" + price_unique;
 
 
-    let icon_delete = document.createElement('i');
-    icon_delete.setAttribute('id', 'icon-delete');
-    icon_delete.className = 'fa fa-trash';
+    let icon_deletes = document.createElement('i');
+    icon_deletes.setAttribute('id', 'icon-delete');
+    icon_deletes.className = 'fa fa-trash';
+    icon_deletes.style.fontSize = '25px';
+    icon_deletes.style.color = 'red';
 
+    icon_deletes.addEventListener('click',deleteDetail);
 
-    icon_delete.style.fontSize = '25px';
-    icon_delete.style.color = 'red';
     // stor_card.appendChild(ul);
     ul.appendChild(li);
     li.appendChild(span_name);
     li.appendChild(input_select);
-    li.appendChild(span_price1);
-    li.appendChild(span_price2);
+    li.appendChild(span_price);
     li.appendChild(icon_delete);
     
   
@@ -223,12 +223,6 @@ function displayCard(e) {
 let tdtotalprice = document.querySelector('#total');
 let totalprice = document.querySelector('.total-price');
 let orderlist = document.querySelector('#order-list')
-
-
-
-// function saveLocalstorage() {
-//     localStorage.setItem('arraycard', JSON.stringify(arraycard));
-// }
 
 // function getTotal(){
     
@@ -249,9 +243,9 @@ function getQuatities(e){
     let unitprice = tdtotal.textContent.replace("$", ""); 
     tdtotalprice.textContent= 'Total: ' +parseInt(unitprice) * parseInt(qualities)+'$';
 
-    // totalprice.textContent = tdtotal.replace('$','');
-    // console.log(totalprice)
 
+function deleteDetail(e){
+   e.target.closest('li').remove();
 }
 
 search_input.addEventListener('keyup',toSearchProduct);
