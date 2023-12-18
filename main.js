@@ -213,8 +213,9 @@ function displayCard(e) {
     ul.appendChild(li);
     li.appendChild(span_name);
     li.appendChild(input_select);
-    li.appendChild(span_price);
-    li.appendChild(icon_delete);
+    li.appendChild(span_price1);
+    li.appendChild(span_price2);
+    li.appendChild(icon_deletes);
     
   
 
@@ -242,8 +243,7 @@ function getQuatities(e){
     // let tdtotal =e.target.closest('td').nextElementSibling;
     let unitprice = tdtotal.textContent.replace("$", ""); 
     tdtotalprice.textContent= 'Total: ' +parseInt(unitprice) * parseInt(qualities)+'$';
-
-
+}
 function deleteDetail(e){
    e.target.closest('li').remove();
 }
@@ -279,6 +279,5 @@ function filterOpjects(name) {
         }
     }
 }
-saveCard()
-reload();
 
+reload();
