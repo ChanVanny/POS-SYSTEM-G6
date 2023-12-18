@@ -48,9 +48,9 @@ function displayProduct() {
 
         let card = document.createElement('div');
         card.classList.add('card');
-        card.setAttribute('id',datass[index].category);
+        card.setAttribute('id', datass[index].category);
         card.dataset.index = index;
-        
+
         // card.addEventListener('click',createCard);
 
         let h4 = document.createElement('h4');
@@ -126,7 +126,7 @@ let cancel = () => {
 
 
 function addProduct() {
-
+    // e.preventDefault();
     data = {
         id: input_id.value,
         name: input_name.value,
@@ -135,37 +135,44 @@ function addProduct() {
         category: input_category.value,
     };
 
-    datass.push(data);
+    if (input_name.value != "" && input_price.value != "") {
+        datass.push(data);
+
+        saveLocalstorage();
+        displayProduct();
+    }
 
     saveLocalstorage();
     displayProduct();
-
     // console.log(datass)
 
 }
 
 // =============todisplay===============
 
-function displayCard(e) {
-    let productstorage = JSON.parse(localStorage.getItem('datass'));
-    // for (let valueObject of productstorage){
-    //     console.log(valueObject)
-    // }
+let cartss = JSON.parse(localStorage.getItem('datass'));
 
-    let ul = document.querySelector('#order-list')
+
+function saveCard() {
+    localStorage.setItem('cartss', JSON.stringify(cartss));
+}
+
+
+function displayCard(e) {
+    console.log(e.target)
 
     let card_index = e.target.parentElement.dataset.index;
     let name_product = e.target.parentElement.children[0].children[0].textContent;
     let price_unique = e.target.parentElement.children[1].children[0].children[1].textContent;
 
-    
+    let ul = document.querySelector('#order-list')
 
     let li = document.createElement('li');
     li.classList.add('list');
 
     let span_name = document.createElement('span');
     span_name.setAttribute('id', 'detail');
-    span_name.textContent = name_product;
+    span_name.textContent =  name_product;
 
     let input_select = document.createElement('input');
     input_select.setAttribute('id', 'details');
@@ -173,7 +180,7 @@ function displayCard(e) {
     input_select.type = 'number';
     input_select.value = 1;
 
-    input_select.addEventListener('change',getQuatities);
+    input_select.addEventListener('change', getQuatities);
 
     // let qauntity =document.querySelector('#details')
     // console.log(qauntity)
@@ -181,12 +188,12 @@ function displayCard(e) {
     let span_price1 = document.createElement('span');
     span_price1.setAttribute('id', 'detail');
     span_price1.setAttribute('class', 'price');
-    span_price1.textContent = price_unique;
+    span_price1.textContent = "$" + price_unique;
 
     let span_price2 = document.createElement('span');
     span_price2.setAttribute('id', 'detail');
     span_price2.setAttribute('class', 'price');
-    span_price2.textContent = price_unique;
+    span_price2.textContent = "$" + price_unique;
 
 
     let icon_delete = document.createElement('i');
@@ -201,70 +208,76 @@ function displayCard(e) {
     li.appendChild(span_price1);
     li.appendChild(span_price2);
     li.appendChild(icon_delete);
-    
-  
+
+
+
+
+
+
+
+
 
 }
 
 let tdtotalprice = document.querySelector('#total');
 let totalprice = document.querySelector('.total-price');
 let orderlist = document.querySelector('#order-list')
-let arraycard = [];
+
 
 
 // function saveLocalstorage() {
 //     localStorage.setItem('arraycard', JSON.stringify(arraycard));
 // }
 
-function getTotal(){
-    console.log(orderlist)
-    // let tototal =0;
-    // for (let Element of orderlist){
-        
-    //     console.log(Element)
-    // }
-    // total.textContent=tototal + "$";
-}
-getTotal()
-function getQuatities(e){
+// function getTotal(){
+//     console.log(orderlist)
+//     // let tototal =0;
+//     // for (let Element of orderlist){
+
+//     //     console.log(Element)
+//     // }
+//     // total.textContent=tototal + "$";
+// }
+// getTotal()
+function getQuatities(e) {
     // let gottotal =0;
     let qualities = e.target.value;
-    let tdtotal =e.target.nextElementSibling;
-    let lastprice =e.target.nextElementSibling.nextElementSibling;
-    let unitprice = tdtotal.textContent.replace("$", ""); 
-    lastprice.textContent=parseInt(unitprice) * parseInt(qualities) + '$';
+    let tdtotal = e.target.nextElementSibling;
+    let lastprice = e.target.nextElementSibling.nextElementSibling;
+    let unitprice = tdtotal.textContent.replace("$", "");
+    lastprice.textContent = parseFloat(unitprice) * parseInt(qualities) + '$';
     // gottotal += tdtotalprice.children[0].textContent.replace('$','');
     // console.log(gottotal)
 
     // totalprice.textContent = tdtotal.replace('$','');
     // console.log(totalprice)
-    
+
 }
 
 
-search_input.addEventListener('keyup',toSearchProduct);
+search_input.addEventListener('keyup', toSearchProduct);
 
-function toSearchProduct(e){
-    let text =e.target.value;
+function toSearchProduct(e) {
+    let text = e.target.value;
     let pronames = document.querySelectorAll('.name-pro');
-    
-    for ( let proname of pronames){
+
+    for (let proname of pronames) {
         let name_pro = proname.children[0].textContent;
-        if (name_pro.indexOf(text) !== -1){
+        if (name_pro.indexOf(text) !== -1) {
             proname.parentElement.style.display = ""
-        }else{
+        } else {
             proname.parentElement.style.display = "none"
         }
     }
 }
 
-function filterOpjects(name){
+function filterOpjects(name) {
     let pronames = document.querySelectorAll('.name-pro');
-    for (let proname of pronames){
+    for (let proname of pronames) {
         let category = proname.parentElement.id;
-        if ( category === name) {
+        if (category === name) {
             proname.parentElement.style.display = '';
-        }else if (name === 'all'){
+        } else if (name === 'all') {
             proname.parentElement.style.display = '';
         }
         else {
@@ -272,6 +285,6 @@ function filterOpjects(name){
         }
     }
 }
-
+saveCard()
 reload();
 
