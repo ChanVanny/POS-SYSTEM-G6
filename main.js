@@ -126,7 +126,7 @@ let cancel = () => {
 
 
 function addProduct() {
-
+    // e.preventDefault();
     data = {
         id: input_id.value,
         name: input_name.value,
@@ -135,16 +135,28 @@ function addProduct() {
         category: input_category.value,
     };
 
-    datass.push(data);
+    if (input_name.value != "" && input_price.value != "") {
+        datass.push(data);
+
+        saveLocalstorage();
+        displayProduct();
+    }
 
     saveLocalstorage();
     displayProduct();
-
     // console.log(datass)
 
 }
 
 // =============todisplay===============
+
+let cartss = JSON.parse(localStorage.getItem('datass'));
+
+
+function saveCard() {
+    localStorage.setItem('cartss', JSON.stringify(cartss));
+}
+
 let arraycart = [];
 productstorage = JSON.parse(localStorage.getItem('datass'));
 console.log(productstorage)
@@ -159,14 +171,14 @@ function displayCard(e) {
     let name_product = e.target.parentElement.children[0].children[0].textContent;
     let price_unique = e.target.parentElement.children[1].children[0].children[1].textContent;
 
-
+let ul = document.querySelector('#order-list')
 
     let li = document.createElement('li');
     li.classList.add('list');
 
     let span_name = document.createElement('span');
     span_name.setAttribute('id', 'detail');
-    span_name.textContent = name_product;
+    span_name.textContent =  name_product;
 
     let input_select = document.createElement('input');
     input_select.setAttribute('id', 'details');
@@ -174,15 +186,20 @@ function displayCard(e) {
     input_select.type = 'number';
     input_select.value = 1;
 
-    input_select.addEventListener('change', getQuatities);
+    input_select.addEventListener('change',  getQuatities);
 
     // let qauntity =document.querySelector('#details')
     // console.log(qauntity)
 
-    let span_price = document.createElement('span');
-    span_price.setAttribute('id', 'detail');
-    span_price.setAttribute('class', 'price');
-    span_price.textContent = price_unique;
+    let span_price1 = document.createElement('span');
+    span_price1.setAttribute('id', 'detail');
+    span_price1.setAttribute('class', 'price');
+    span_price1.textContent = "$" + price_unique;
+
+    let span_price2 = document.createElement('span');
+    span_price2.setAttribute('id', 'detail');
+    span_price2.setAttribute('class', 'price');
+    span_price2.textContent = "$" + price_unique;
 
 
     let icon_delete = document.createElement('i');
@@ -196,24 +213,26 @@ function displayCard(e) {
     ul.appendChild(li);
     li.appendChild(span_name);
     li.appendChild(input_select);
-    li.appendChild(span_price);
+    li.appendChild(span_price1);
+    li.appendChild(span_price2);
     li.appendChild(icon_delete);
+    
+  
 
 }
 
-
-
-// function itemcardDetail(){
-//     let cart = {
-
-//     };
-// }
-
 let tdtotalprice = document.querySelector('#total');
+let totalprice = document.querySelector('.total-price');
 let orderlist = document.querySelector('#order-list')
 
-// function getTotal(){
 
+
+// function saveLocalstorage() {
+//     localStorage.setItem('arraycard', JSON.stringify(arraycard));
+// }
+
+// function getTotal(){
+    
 //     let tototal =0;
 //     for (let Element of orderlist){
 //         // let costprice = Element.lastElementChild.textContent;
@@ -224,17 +243,19 @@ let orderlist = document.querySelector('#order-list')
 //     // total.textContent=tototal + "$";
 // }
 
-function getQuatities(e) {
+function getQuatities(e){
     let qualities = e.target.value;
-    let tdtotal = e.target.nextElementSibling;
+    let tdtotal =e.target.nextElementSibling;
     // let tdtotal =e.target.closest('td').nextElementSibling;
-    let unitprice = tdtotal.textContent.replace("$", "");
-    tdtotalprice.textContent = 'Total: ' + parseInt(unitprice) * parseInt(qualities) + '$';
+    let unitprice = tdtotal.textContent.replace("$", ""); 
+    tdtotalprice.textContent= 'Total: ' +parseInt(unitprice) * parseInt(qualities)+'$';
 
+    // totalprice.textContent = tdtotal.replace('$','');
+    // console.log(totalprice)
 
 }
 
-search_input.addEventListener('keyup', toSearchProduct);
+search_input.addEventListener('keyup',toSearchProduct);
 
 function toSearchProduct(e) {
     let text = e.target.value;
@@ -243,7 +264,7 @@ function toSearchProduct(e) {
     for (let proname of pronames) {
         let name_pro = proname.children[0].textContent;
         console.log(proname.parentElement)
-        if (name_pro.indexOf(text) !== -1) {
+        if (name_pro.indexOf(text) !== -1){
             proname.parentElement.style.display = ""
         } else {
             proname.parentElement.style.display = "none"
@@ -265,6 +286,6 @@ function filterOpjects(name) {
         }
     }
 }
-
+saveCard()
 reload();
 

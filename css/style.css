@@ -344,19 +344,21 @@ h3{
     margin: 20px;
     display: flex;
     justify-content: space-around;
+    padding: 10px;
     
 }
 #product-order{
     width: 45px;
 }
 #detail{
-    margin-top:20px;
+    margin-top:10px;
+
 
 }
 .detail{
     width: 10%;
     height: 4%;
-    margin-top:20px;
+    margin-top:10px;
 }
 
 
@@ -439,7 +441,7 @@ th{
 }
 
 #icon-delete{
-    margin-top: 17px;
+    margin-top: 8px;
 }
 
 /* ==============category=============== */
