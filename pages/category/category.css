@@ -36,7 +36,7 @@ hr{
     border: none;
     color: white;
     font-size:large;
-    background-color:#d63384;
+    background-color:rgb(240, 33, 33);
 }
 
 table{
@@ -56,7 +56,7 @@ th, td{
 }
 
 td span i{
-    background-color: #d63384;
+    background-color: rgb(240, 33, 33);
     padding: 10px;
     border-radius: 50%;
     color: white;
@@ -70,7 +70,7 @@ td span i{
     padding: 10px;
     width: 100px;
     border: none;
-    background-color: #d63384;
+    background-color: rgb(240, 33, 33);
     color: white;
     font-size: large;
 }
@@ -109,7 +109,7 @@ form button{
     border-radius: 7px;
     margin-top: 10px;
     border: none;
-    background-color: #d63384;
+    background-color: rgb(240, 33, 33);
     color: white;
     font-size: large;
 
