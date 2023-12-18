@@ -171,7 +171,6 @@ function displayCard(e) {
     let name_product = e.target.parentElement.children[0].children[0].textContent;
     let price_unique = e.target.parentElement.children[1].children[0].children[1].textContent;
 
-let ul = document.querySelector('#order-list')
 
     let li = document.createElement('li');
     li.classList.add('list');
