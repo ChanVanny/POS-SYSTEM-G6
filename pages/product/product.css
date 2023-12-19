@@ -244,3 +244,9 @@ label {
     padding: 6px;
     margin-right: 3%;
 } */
+
+#selected{
+    width: 22%;
+    margin-right: 5px;
+    height: 40px;
+}

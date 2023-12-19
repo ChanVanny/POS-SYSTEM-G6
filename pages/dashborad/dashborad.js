@@ -1,7 +1,7 @@
 let productstorage = JSON.parse(localStorage.getItem('datass'))
 
 if (JSON.parse(localStorage.getItem("categories")) != null) {
-    categories = JSON.parse(localStorage.getItem("categories"));
+    let categories = JSON.parse(localStorage.getItem("categories"));
  
 }
 

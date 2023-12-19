@@ -1,7 +1,8 @@
 let dialog_container = document.querySelector('.dialog_container');
 let table = document.querySelector('table');
 let card_pro = document.querySelector('.card-products');
-
+let select = document.querySelector('#selected');
+console.log(select)
 let btn_search = document.querySelector('#search');
 
 
@@ -47,7 +48,7 @@ function displayProduct() {
         let spanDelete = document.createElement('span');
         let spanEdit = document.createElement('span');
         let iDelete = document.createElement('i');
-        iDelete.addEventListener('click',toDeletecard);
+        iDelete.addEventListener('click', toDeletecard);
         let iEdit = document.createElement('i');
 
         tdId.textContent = datass[index].id;
@@ -118,7 +119,7 @@ let onAdd = () => {
 
 }
 
-function toDeletecard(e){
+function toDeletecard(e) {
     let index = e.target.closest('tr').dataset.index;
     datass.splice(index, 1);
     saveLocalstorage();
@@ -134,20 +135,40 @@ let cancel = () => {
 
 
 search.addEventListener('keyup', searchNameproduct);
+select.addEventListener('change', selectData);
 
-function searchNameproduct(e){
+function selectData(e) {
+    let alloption = e.target.value;
+    let tables = table.lastElementChild.children;
+    for ( let opject of tables){
+        let category = opject.id;
+        if ( category === alloption) {
+            opject.style.display = '';
+        }
+        else if (alloption === 'all' ){
+            opject.style.display = '';
+        }
+        else {
+            opject.style.display = 'none';
+        }
+    }
+}
+
+function searchNameproduct(e) {
     let namePro = e.target.value;
     let table = document.querySelector('table');
     let tables = table.lastElementChild.children;
-    for (let tr of tables){
+    for (let tr of tables) {
         let gotName = tr.children[1].textContent;
         if (gotName.indexOf(namePro) !== -1) {
             tr.style.display = '';
         } else {
             tr.style.display = 'none';
         }
-    }    
+    }
 }
+
+
 
 reload();
 displayProduct();
