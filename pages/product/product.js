@@ -1,15 +1,12 @@
 let dialog_container = document.querySelector('.dialog_container');
 let table = document.querySelector('table');
 let card_pro = document.querySelector('.card-products');
-<<<<<<< HEAD
 const addBtn= document.querySelector('.add-btn')
 const editBtn= document.querySelector('.edit-btn')
-=======
 let select = document.querySelector('#selected');
 console.log(select)
 let btn_search = document.querySelector('#search');
 
->>>>>>> 930291699c0dba8864d49141ec1fe150dede18a9
 
 let datass = [];
 
@@ -34,7 +31,6 @@ function displayProduct() {
     const tbody = document.querySelector('tbody');
     tbody.remove();
     let tbodys = document.createElement('tbody');
-<<<<<<< HEAD
     if(datass.length){
         for (let index in datass) {
             let tr = document.createElement('tr');
@@ -83,7 +79,6 @@ function displayProduct() {
             tbodys.appendChild(tr);
         }
         table.appendChild(tbodys);
-=======
 
     for (let index in datass) {
 
@@ -130,7 +125,6 @@ function displayProduct() {
         tdAction.appendChild(spanEdit);
 
         tbodys.appendChild(tr);
->>>>>>> 930291699c0dba8864d49141ec1fe150dede18a9
     }
 }
 
@@ -204,11 +198,8 @@ let onAdd = () => {
     show(addBtn);
 }
 
-<<<<<<< HEAD
 function toDeletecardcategory(e){
-=======
 function toDeletecard(e) {
->>>>>>> 930291699c0dba8864d49141ec1fe150dede18a9
     let index = e.target.closest('tr').dataset.index;
     datass.splice(index, 1);
     saveLocalstorage();
@@ -222,8 +213,6 @@ let cancel = () => {
 }
 
 
-<<<<<<< HEAD
-=======
 search.addEventListener('keyup', searchNameproduct);
 select.addEventListener('change', selectData);
 
@@ -260,6 +249,5 @@ function searchNameproduct(e) {
 
 
 
->>>>>>> 930291699c0dba8864d49141ec1fe150dede18a9
 reload();
 displayProduct();
