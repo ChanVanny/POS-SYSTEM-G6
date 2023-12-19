@@ -4,6 +4,8 @@ let sideba_center = document.querySelector('.side-bar-center');
 // let btn_search = document.querySelector('#button-addon2');
 let search_input = document.querySelector('.form-control');
 
+
+
 let datass = [];
 
 
@@ -280,6 +282,7 @@ function filterOpjects(name) {
     }
 }
 
+<<<<<<< HEAD
 // let button = document.querySelectorAll('.btncategory');
 // console.log(button);
 
@@ -298,3 +301,14 @@ if (JSON.parse(localStorage.getItem("categories")) != null) {
 
 // button.appendChild(btnn)
 reload();
+=======
+// let button = document.querySelectorAll('.button');
+// console.log(button)
+// let categories = JSON.parse(localStorage.getItem("categories"));
+// console.log(categories)
+
+
+
+
+reload();
+>>>>>>> 7806723 (#19 mdf)
