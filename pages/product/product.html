@@ -49,7 +49,7 @@
                     <div class="input">
                         <label for="kind-product">category</label>
                         <select name="category" id="category">
-                            <option disabled selected>category</option>
+                            <option disabled selected value="">category</option>
                             <option value="drink">Drink</option>
                             <option value="cookie">Cookie</option>
                             <option value="fruit">Fruit</option>
@@ -59,7 +59,7 @@
                     <div class="input">
                         <label for="quantity">Quantity</label>
                         <select name="quantity" id="quantity">
-                            <option disabled selected>Number</option>
+                            <option disabled selected value="">Number</option>
                             <option value="5">5</option>
                             <option value="8">8</option>
                             <option value="20">20</option>
@@ -71,7 +71,8 @@
                     </div>
                     <div class="card_button btn_dialog">
                         <button type="button" onclick="cancel()">Cancel</button>
-                        <button type="button" onclick="addProduct()">Add Product</button>
+                        <button type="button" class="add-btn" onclick="addProduct()">Add Product</button>
+                        <button type="button" class="edit-btn" onclick="updateProduct()">Edit Product</button>
                     </div>
                 </dialog>
             </div>
