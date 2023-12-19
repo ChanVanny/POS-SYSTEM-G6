@@ -282,7 +282,6 @@ function filterOpjects(name) {
     }
 }
 
-<<<<<<< HEAD
 // let button = document.querySelectorAll('.btncategory');
 // console.log(button);
 
@@ -301,7 +300,6 @@ if (JSON.parse(localStorage.getItem("categories")) != null) {
 
 // button.appendChild(btnn)
 reload();
-=======
 // let button = document.querySelectorAll('.button');
 // console.log(button)
 // let categories = JSON.parse(localStorage.getItem("categories"));
@@ -311,4 +309,3 @@ reload();
 
 
 reload();
->>>>>>> 7806723 (#19 mdf)
