@@ -2,6 +2,9 @@ let dialog_container = document.querySelector('.dialog_container');
 let table = document.querySelector('table');
 let card_pro = document.querySelector('.card-products');
 
+let btn_search = document.querySelector('#search');
+
+
 let datass = [];
 
 function saveLocalstorage() {
@@ -44,7 +47,7 @@ function displayProduct() {
         let spanDelete = document.createElement('span');
         let spanEdit = document.createElement('span');
         let iDelete = document.createElement('i');
-        iDelete.addEventListener('click',toDeletecard)
+        iDelete.addEventListener('click',toDeletecard);
         let iEdit = document.createElement('i');
 
         tdId.textContent = datass[index].id;
@@ -130,9 +133,21 @@ let cancel = () => {
 }
 
 
+search.addEventListener('keyup', searchNameproduct);
 
-
-
+function searchNameproduct(e){
+    let namePro = e.target.value;
+    let table = document.querySelector('table');
+    let tables = table.lastElementChild.children;
+    for (let tr of tables){
+        let gotName = tr.children[1].textContent;
+        if (gotName.indexOf(namePro) !== -1) {
+            tr.style.display = '';
+        } else {
+            tr.style.display = 'none';
+        }
+    }    
+}
 
 reload();
 displayProduct();

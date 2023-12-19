@@ -280,21 +280,21 @@ function filterOpjects(name) {
     }
 }
 
-let button = document.querySelectorAll('.btncategory');
-console.log(button);
+// let button = document.querySelectorAll('.btncategory');
+// console.log(button);
 
 if (JSON.parse(localStorage.getItem("categories")) != null) {
     categories = JSON.parse(localStorage.getItem("categories"));
  
 }
 
-for (let x of categories){
-    console.log(x.name)
-    let btnn = document.createElement('button')
-    btnn.classList.add('btn');
-    btnn.textContent=x.name;
+// for (let x of categories){
+//     console.log(x.name)
+//     let btnn = document.createElement('button')
+//     btnn.classList.add('btn');
+//     btnn.textContent=x.name;
    
-}
+// }
 
 // button.appendChild(btnn)
 reload();
