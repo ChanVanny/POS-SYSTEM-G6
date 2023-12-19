@@ -235,14 +235,17 @@ function cartdetail() {
 
 
 function Card(e) {
+    console.log(e.target.parentElement.children[1].children[0].firstElementChild.children[1].textContent)
     let card_index = e.target.parentElement.dataset.index;
     let name_product = e.target.parentElement.children[0].children[0].textContent;
     let price_unique = e.target.parentElement.children[1].children[0].children[1].textContent;
+    let card_qauntity = e.target.parentElement.children[1].children[0].firstElementChild.children[1].textContent
 
     let item = {
         id: card_index,
         name: name_product,
         price: price_unique,
+        qauntity: card_qauntity,
     }
     arraycart.push(item)
     save()
