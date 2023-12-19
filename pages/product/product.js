@@ -79,7 +79,7 @@ function displayProduct() {
             tbodys.appendChild(tr);
         }
         table.appendChild(tbodys);
-
+    }
     for (let index in datass) {
 
         let tr = document.createElement('tr');
