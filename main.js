@@ -4,6 +4,8 @@ let sideba_center = document.querySelector('.side-bar-center');
 // let btn_search = document.querySelector('#button-addon2');
 let search_input = document.querySelector('.form-control');
 
+
+
 let datass = [];
 
 
@@ -284,5 +286,13 @@ function filterOpjects(name) {
         }
     }
 }
+
+// let button = document.querySelectorAll('.button');
+// console.log(button)
+// let categories = JSON.parse(localStorage.getItem("categories"));
+// console.log(categories)
+
+
+
 
 reload();
