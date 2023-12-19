@@ -157,12 +157,14 @@ function saveCard() {
     localStorage.setItem('cartss', JSON.stringify(cartss));
 }
 
-let arraycart = [];
+
 productstorage = JSON.parse(localStorage.getItem('datass'));
-console.log(productstorage)
+
+
+let arraycart = [];
+
+
 function displayCard(e) {
-
-
 
 
     let ul = document.querySelector('#order-list')
@@ -217,32 +219,36 @@ function displayCard(e) {
     li.appendChild(span_price2);
     li.appendChild(icon_deletes);
     
-  
+    
 
 }
 
+
 let tdtotalprice = document.querySelector('#total');
 let totalprice = document.querySelector('.total-price');
-let orderlist = document.querySelector('#order-list')
+let orderlist = document.querySelector('#order-list');
+
 
 // function getTotal(){
     
 //     let tototal =0;
-//     for (let Element of orderlist){
+//     for (let list of orderlist){
 //         // let costprice = Element.lastElementChild.textContent;
 //         // let unitprice = costprice.replace("$", "");
 //         // tototal +=parseInt(unitprice)
-//         console.log(Element)
+//         console.log(list)
 //     }
 //     // total.textContent=tototal + "$";
 // }
 
 function getQuatities(e){
     let qualities = e.target.value;
-    let tdtotal =e.target.nextElementSibling;
+    let uniquetotalprice =e.target.nextElementSibling;
+    let tdtotal =e.target.nextElementSibling.nextElementSibling;
+
     // let tdtotal =e.target.closest('td').nextElementSibling;
-    let unitprice = tdtotal.textContent.replace("$", ""); 
-    tdtotalprice.textContent= 'Total: ' +parseInt(unitprice) * parseInt(qualities)+'$';
+    let unitprice = uniquetotalprice.textContent.replace("$", ""); 
+    tdtotal.textContent=parseInt(unitprice) * parseInt(qualities)+'$';
 }
 function deleteDetail(e){
    e.target.closest('li').remove();
@@ -256,7 +262,6 @@ function toSearchProduct(e) {
 
     for (let proname of pronames) {
         let name_pro = proname.children[0].textContent;
-        console.log(proname.parentElement)
         if (name_pro.indexOf(text) !== -1){
             proname.parentElement.style.display = ""
         } else {
