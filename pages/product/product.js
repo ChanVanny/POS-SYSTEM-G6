@@ -199,7 +199,6 @@ let onAdd = () => {
 }
 
 function toDeletecardcategory(e){
-function toDeletecard(e) {
     let index = e.target.closest('tr').dataset.index;
     datass.splice(index, 1);
     saveLocalstorage();
