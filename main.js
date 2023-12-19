@@ -193,12 +193,12 @@ function displayCard(e) {
     let span_price1 = document.createElement('span');
     span_price1.setAttribute('id', 'detail');
     span_price1.setAttribute('class', 'price');
-    span_price1.textContent = "$" + price_unique;
+    span_price1.textContent =  price_unique;
 
     let span_price2 = document.createElement('span');
     span_price2.setAttribute('id', 'detail');
     span_price2.setAttribute('class', 'price');
-    span_price2.textContent = "$" + price_unique;
+    span_price2.textContent = price_unique;
 
 
     let icon_deletes = document.createElement('i');
