@@ -14,7 +14,8 @@
     <div class="container">
         <div class="show_document">
             <div class="side-bar-left">
-                <img src="images/logos.png" class="image_logo" width="65px" alt="logo" style="color:rgba(148, 5, 5, 0.838);">
+                <img src="images/logos.png" class="image_logo" width="65px" alt="logo"
+                    style="color:rgba(148, 5, 5, 0.838);">
                 <ul id="menu">
                     <li><i class="fa fa-shopping-basket" style="font-size:17px;color:rgba(148, 5, 5, 0.838);"></i><a
                             href="pages/dashborad/dashborad.html" style="font-size: 13px;">Dashborad</a></li>
@@ -39,7 +40,7 @@
                         <option value="3">Fruit</option>
                     </select>
                 </div> -->
-                <div class="button">
+                <div class="button btncategory">
                     <button class="btn" onclick="filterOpjects('all')">All</button>
                     <button class="btn" onclick="filterOpjects('drink')">Drink</button>
                     <button class="btn" onclick="filterOpjects('cookie')">Cookie</button>
@@ -47,10 +48,10 @@
                 </div>
 
                 <div class="content">
-                    <button class="create-new-card" onclick="onAdd()">Add Product</button>
+                    <!-- <button class="create-new-card" onclick="onAdd()"></button> -->
                     <div class="input-group">
                         <input type="text" class="form-control" placeholder="search name product..">
-                       
+
                     </div>
                 </div>
                 <div class="card-products" id="pills-home" role="piepanel" aria-labelledby="pills-home-pie">
@@ -128,23 +129,27 @@
                     <i class="	fa fa-cart-arrow-down" id="iconcard" style="font-size:20px;color:black;"></i>
                 </div>
                 <div class="box-store-card">
-                    <h3>Current Order</h3>
-                    <hr>
-                    <ul id="order-list" class="list-unstyled">
-                        <!-- <li class="list">
-                            
-                            <span id="detail">Trumoo</span>
-                            <input id="detail" class="detail" type="number" value="1">
-                   
-                   
-                            <span id="detail" class="price ">$ 0.99</span>
-                        </li> -->
-                    </ul>
+                    <div class="on-detail">
+                        <h3>Current Order</h3>
+                        <hr>
+                        <ul id="order-list" class="list-unstyled">
+                            <!-- <li class="list">
+                                
+                                <span id="detail">Trumoo</span>
+                                <input id="detail" class="detail" type="number" value="1">
+                       
+                       
+                                <span id="detail" class="price ">$ 0.99</span>
+                            </li> -->
+
+                        </ul>
+                    </div>
+
                     <h4 id="total">Total: <span class="total-price">0</span></h4>
 
                     <button class="order">Checkout</button>
+
                 </div>
-                
 
             </div>
         </div>

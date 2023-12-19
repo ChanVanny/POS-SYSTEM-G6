@@ -1,8 +1,15 @@
 let dialog_container = document.querySelector('.dialog_container');
 let table = document.querySelector('table');
 let card_pro = document.querySelector('.card-products');
+<<<<<<< HEAD
 const addBtn= document.querySelector('.add-btn')
 const editBtn= document.querySelector('.edit-btn')
+=======
+let select = document.querySelector('#selected');
+console.log(select)
+let btn_search = document.querySelector('#search');
+
+>>>>>>> 930291699c0dba8864d49141ec1fe150dede18a9
 
 let datass = [];
 
@@ -27,6 +34,7 @@ function displayProduct() {
     const tbody = document.querySelector('tbody');
     tbody.remove();
     let tbodys = document.createElement('tbody');
+<<<<<<< HEAD
     if(datass.length){
         for (let index in datass) {
             let tr = document.createElement('tr');
@@ -75,6 +83,54 @@ function displayProduct() {
             tbodys.appendChild(tr);
         }
         table.appendChild(tbodys);
+=======
+
+    for (let index in datass) {
+
+        let tr = document.createElement('tr');
+        tr.setAttribute('id', datass[index].category);
+        tr.dataset.index = index;
+
+        let tdId = document.createElement('td');
+        let tdName = document.createElement('td');
+        let tdCategory = document.createElement('td');
+        let tdQuality = document.createElement('td');
+        let tdPrice = document.createElement('td');
+        let tdAction = document.createElement('td');
+
+        let spanDelete = document.createElement('span');
+        let spanEdit = document.createElement('span');
+        let iDelete = document.createElement('i');
+        iDelete.addEventListener('click', toDeletecard);
+        let iEdit = document.createElement('i');
+
+        tdId.textContent = datass[index].id;
+        tdName.textContent = datass[index].name;
+        tdCategory.textContent = datass[index].category;
+        tdQuality.textContent = datass[index].qauntity;
+        tdPrice.textContent = "price" + datass[index].price;
+
+        iDelete.className = "ri-delete-bin-6-line";
+        iEdit.className = "ri-pencil-fill";
+
+        tdAction.appendChild(iDelete);
+        tdAction.appendChild(iEdit);
+
+        spanDelete.appendChild(iDelete);
+        spanEdit.appendChild(iEdit);
+
+        tr.appendChild(tdId);
+        tr.appendChild(tdName);
+        tr.appendChild(tdCategory);
+        tr.appendChild(tdQuality);
+        tr.appendChild(tdPrice);
+        tr.appendChild(tdAction);
+
+        tdAction.appendChild(spanDelete);
+        tdAction.appendChild(spanEdit);
+
+        tbodys.appendChild(tr);
+>>>>>>> 930291699c0dba8864d49141ec1fe150dede18a9
     }
 }
 
@@ -148,7 +204,11 @@ let onAdd = () => {
     show(addBtn);
 }
 
+<<<<<<< HEAD
 function toDeletecardcategory(e){
+=======
+function toDeletecard(e) {
+>>>>>>> 930291699c0dba8864d49141ec1fe150dede18a9
     let index = e.target.closest('tr').dataset.index;
     datass.splice(index, 1);
     saveLocalstorage();
@@ -162,5 +222,44 @@ let cancel = () => {
 }
 
 
+<<<<<<< HEAD
+=======
+search.addEventListener('keyup', searchNameproduct);
+select.addEventListener('change', selectData);
+
+function selectData(e) {
+    let alloption = e.target.value;
+    let tables = table.lastElementChild.children;
+    for ( let opject of tables){
+        let category = opject.id;
+        if ( category === alloption) {
+            opject.style.display = '';
+        }
+        else if (alloption === 'all' ){
+            opject.style.display = '';
+        }
+        else {
+            opject.style.display = 'none';
+        }
+    }
+}
+
+function searchNameproduct(e) {
+    let namePro = e.target.value;
+    let table = document.querySelector('table');
+    let tables = table.lastElementChild.children;
+    for (let tr of tables) {
+        let gotName = tr.children[1].textContent;
+        if (gotName.indexOf(namePro) !== -1) {
+            tr.style.display = '';
+        } else {
+            tr.style.display = 'none';
+        }
+    }
+}
+
+
+
+>>>>>>> 930291699c0dba8864d49141ec1fe150dede18a9
 reload();
 displayProduct();
