@@ -5,7 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>dashborad</title>
     <link rel="stylesheet" href="../../css/style.css">
-    <script src="main.js" defer></script>
+    <link rel="stylesheet" href="dashborad.css">
+    <script src="dashborad.js" defer></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 
@@ -14,12 +15,12 @@
         <div class="container">
             <div class="show_document">
                 <div class="side-bar-left">
-                    <img src="../../images/logo.png" class="image_logo" width="55px" alt="logo">
+                    <img src="../../images/logos.png" class="image_logo" width="55px" alt="logo">
                     <ul id="menu">
-                        <li><i class="fa fa-shopping-basket" style="font-size:15px;color:rgb(216, 130, 145);" ></i><a href="#">Dashborad</a></li>
-                        <li><i class="fa fa-shopping-cart" style="font-size:15px;color:rgb(216, 130, 145);" ></i><a href="../product/product.html">Products</a></li>
-                        <li><i class="fa fa-th" style="font-size:15px;color:rgb(216, 130, 145);" ></i><a href="../category/category.html">Category</a></li>
-                        <li><i class="	fa fa-cart-arrow-down" style="font-size:15px;color:rgb(216, 130, 145);" ></i><a href="../../index.html">Order</a></li>
+                        <li><i class="fa fa-shopping-basket" style="font-size:17px;color:rgba(148, 5, 5, 0.838);" ></i><a href="#">Dashborad</a></li>
+                        <li><i class="fa fa-shopping-cart" style="font-size:17px;color:rgba(148, 5, 5, 0.838);" ></i><a href="../product/product.html">Products</a></li>
+                        <li><i class="fa fa-th" style="font-size:17px;color:rgba(148, 5, 5, 0.838);" ></i><a href="../category/category.html">Category</a></li>
+                        <li><i class=" fa fa-cart-arrow-down " style="font-size:17px;color:rgba(148, 5, 5, 0.838);" ></i><a href="../../index.html">Order</a></li>
                     </ul>
                 </div>
                 <div class="side-bar-bashright">
@@ -33,24 +34,25 @@
                     <div class="stock-content">
                         <div class="stock">
                             <h2 class="name-pros">In stock</h2>
-                            <span id="stock">0</span>
+                            <span id="stock1">0</span>
                         </div>
                         <div class="stock">
                             <h2 class="name-pros">Category</h2>
-                            <span id="stock">0</span>
+                            <span id="stock2">0</span>
                         </div>
                         <div class="stock">
                             <h2 class="name-pros">Sold Out</h2>
-                            <span id="stock">0</span>
+                            <span id="stock3">0</span>
                         </div>
                         <div class="stock">
                             <h2 class="name-pros">Income</h2>
-                            <span id="stock">0</span>
+                            <span id="stock4">0</span>
                         </div>
                        
                     </div>
                     <div class="table-card">
                         <h3 class="product-sold">Top 5 sold product</h3>
+                        
                         <table>
                             <thead>
                                 <tr>
@@ -66,9 +68,9 @@
 
                             </tbody>
                         </table>
-                        <div class="card_button add">
+                        <!-- <div class="card_button add">
                             <button type="button" id="add-product" onclick="onAdd()">Add Product</button>
-                        </div>
+                        </div> -->
                     </div>
                 
                 </div>

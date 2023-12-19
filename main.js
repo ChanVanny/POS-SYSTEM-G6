@@ -45,12 +45,12 @@ function displayProduct() {
     card_pro.classList.add('card-products');
 
     for (let index in datass) {
-
+        
         let card = document.createElement('div');
         card.classList.add('card');
-        card.setAttribute('id',datass[index].category);
+        card.setAttribute('id', datass[index].category);
         card.dataset.index = index;
-        
+
         // card.addEventListener('click',createCard);
 
         let h4 = document.createElement('h4');
@@ -126,7 +126,7 @@ let cancel = () => {
 
 
 function addProduct() {
-
+    // e.preventDefault();
     data = {
         id: input_id.value,
         name: input_name.value,
@@ -135,33 +135,49 @@ function addProduct() {
         category: input_category.value,
     };
 
-    datass.push(data);
+    if (input_name.value != "" && input_price.value != "") {
+        datass.push(data);
+
+        saveLocalstorage();
+        displayProduct();
+    }
 
     saveLocalstorage();
     displayProduct();
-
     // console.log(datass)
 
 }
 
 // =============todisplay===============
 
+let cartss = JSON.parse(localStorage.getItem('datass'));
+
+
+function saveCard() {
+    localStorage.setItem('cartss', JSON.stringify(cartss));
+}
+
+let arraycart = [];
+productstorage = JSON.parse(localStorage.getItem('datass'));
+console.log(productstorage)
 function displayCard(e) {
+
+
+
+
     let ul = document.querySelector('#order-list')
 
-    console.log(e.target.parentElement);
     let card_index = e.target.parentElement.dataset.index;
     let name_product = e.target.parentElement.children[0].children[0].textContent;
     let price_unique = e.target.parentElement.children[1].children[0].children[1].textContent;
 
     
-
     let li = document.createElement('li');
     li.classList.add('list');
 
     let span_name = document.createElement('span');
     span_name.setAttribute('id', 'detail');
-    span_name.textContent = name_product;
+    span_name.textContent =  name_product;
 
     let input_select = document.createElement('input');
     input_select.setAttribute('id', 'details');
@@ -169,34 +185,44 @@ function displayCard(e) {
     input_select.type = 'number';
     input_select.value = 1;
 
-    input_select.addEventListener('change',getQuatities);
+    input_select.addEventListener('change',  getQuatities);
 
     // let qauntity =document.querySelector('#details')
     // console.log(qauntity)
 
-    let span_price = document.createElement('span');
-    span_price.setAttribute('id', 'detail');
-    span_price.setAttribute('class', 'price');
-    span_price.textContent = price_unique;
+    let span_price1 = document.createElement('span');
+    span_price1.setAttribute('id', 'detail');
+    span_price1.setAttribute('class', 'price');
+    span_price1.textContent = "$" + price_unique;
+
+    let span_price2 = document.createElement('span');
+    span_price2.setAttribute('id', 'detail');
+    span_price2.setAttribute('class', 'price');
+    span_price2.textContent = "$" + price_unique;
 
 
-    let icon_delete = document.createElement('i');
-    icon_delete.setAttribute('id', 'icon-delete');
-    icon_delete.className = 'fa fa-trash';
-    icon_delete.style.fontSize = '25px';
-    icon_delete.style.color = 'red';
+    let icon_deletes = document.createElement('i');
+    icon_deletes.setAttribute('id', 'icon-delete');
+    icon_deletes.className = 'fa fa-trash';
+    icon_deletes.style.fontSize = '25px';
+    icon_deletes.style.color = 'red';
+
+    icon_deletes.addEventListener('click',deleteDetail);
+
     // stor_card.appendChild(ul);
     ul.appendChild(li);
     li.appendChild(span_name);
     li.appendChild(input_select);
-    li.appendChild(span_price);
-    li.appendChild(icon_delete);
+    li.appendChild(span_price1);
+    li.appendChild(span_price2);
+    li.appendChild(icon_deletes);
     
   
 
 }
 
 let tdtotalprice = document.querySelector('#total');
+let totalprice = document.querySelector('.total-price');
 let orderlist = document.querySelector('#order-list')
 
 // function getTotal(){
@@ -217,34 +243,35 @@ function getQuatities(e){
     // let tdtotal =e.target.closest('td').nextElementSibling;
     let unitprice = tdtotal.textContent.replace("$", ""); 
     tdtotalprice.textContent= 'Total: ' +parseInt(unitprice) * parseInt(qualities)+'$';
-
-
+}
+function deleteDetail(e){
+   e.target.closest('li').remove();
 }
 
 search_input.addEventListener('keyup',toSearchProduct);
 
-function toSearchProduct(e){
-    let text =e.target.value;
+function toSearchProduct(e) {
+    let text = e.target.value;
     let pronames = document.querySelectorAll('.name-pro');
-    
-    for ( let proname of pronames){
+
+    for (let proname of pronames) {
         let name_pro = proname.children[0].textContent;
         console.log(proname.parentElement)
         if (name_pro.indexOf(text) !== -1){
             proname.parentElement.style.display = ""
-        }else{
+        } else {
             proname.parentElement.style.display = "none"
         }
     }
 }
 
-function filterOpjects(name){
+function filterOpjects(name) {
     let pronames = document.querySelectorAll('.name-pro');
-    for (let proname of pronames){
+    for (let proname of pronames) {
         let category = proname.parentElement.id;
-        if ( category === name) {
+        if (category === name) {
             proname.parentElement.style.display = '';
-        }else if (name === 'all'){
+        } else if (name === 'all') {
             proname.parentElement.style.display = '';
         }
         else {
@@ -253,5 +280,21 @@ function filterOpjects(name){
     }
 }
 
-reload();
+// let button = document.querySelectorAll('.btncategory');
+// console.log(button);
 
+if (JSON.parse(localStorage.getItem("categories")) != null) {
+    categories = JSON.parse(localStorage.getItem("categories"));
+ 
+}
+
+// for (let x of categories){
+//     console.log(x.name)
+//     let btnn = document.createElement('button')
+//     btnn.classList.add('btn');
+//     btnn.textContent=x.name;
+   
+// }
+
+// button.appendChild(btnn)
+reload();

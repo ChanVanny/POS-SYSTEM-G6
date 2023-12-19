@@ -18,11 +18,11 @@
                 <ul id="menu">
                     <li><i class="fa fa-shopping-basket" style="font-size:17px;color:rgba(148, 5, 5, 0.838);"></i><a
                             href="pages/dashborad/dashborad.html" style="font-size: 13px;">Dashborad</a></li>
-                    <li><i class="fa fa-shopping-cart" style="font-size:17px;color:rgba(148, 5, 5, 0.838);"></i><a
-                            href="pages/product/product.html" style="font-size: 13px;">Products</a></li>
+                    <li><i class=" fa fa-cart-arrow-down" style="font-size:17px;color:rgba(148, 5, 5, 0.838);"></i><a
+                            href="pages/product/product.html" style="font-size: 13px;">Product</a></li>
                     <li><i class="fa fa-th" style="font-size:17px;color:rgba(148, 5, 5, 0.838);"></i><a
                             href="pages/category/category.html" style="font-size: 13px;">Category</a></li>
-                    <li><i class="	fa fa-cart-arrow-down" style="font-size:17px;color:rgba(148, 5, 5, 0.838);"></i><a
+                    <li><i class="fa fa-shopping-cart	" style="font-size:17px;color:rgba(148, 5, 5, 0.838);"></i><a
                             href="#">Order</a></li>
                 </ul>
             </div>
@@ -39,7 +39,7 @@
                         <option value="3">Fruit</option>
                     </select>
                 </div> -->
-                <div class="button">
+                <div class="button btncategory">
                     <button class="btn" onclick="filterOpjects('all')">All</button>
                     <button class="btn" onclick="filterOpjects('drink')">Drink</button>
                     <button class="btn" onclick="filterOpjects('cookie')">Cookie</button>
@@ -47,7 +47,7 @@
                 </div>
 
                 <div class="content">
-                    <button class="create-new-card" onclick="onAdd()">Add Product</button>
+                    <!-- <button class="create-new-card" onclick="onAdd()"></button> -->
                     <div class="input-group">
                         <input type="text" class="form-control" placeholder="search name product..">
                        
@@ -109,9 +109,9 @@
                             <option value="12">12</option>
                             <option value="23">23</option>
                             <option value="50">50</option>
-                            <option value="50">100</option>
-                            <option value="50">10</option>
-                            <option value="50">30</option>
+                            <option value="100">100</option>
+                            <option value="10">10</option>
+                            <option value="30">30</option>
                         </select>
                         <p class="error_size error" style="display: none;">Choose Size*</p>
                     </div>

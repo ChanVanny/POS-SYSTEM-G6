@@ -344,19 +344,21 @@ h3{
     margin: 20px;
     display: flex;
     justify-content: space-around;
+    padding: 10px;
     
 }
 #product-order{
     width: 45px;
 }
 #detail{
-    margin-top:20px;
+    margin-top:10px;
+
 
 }
 .detail{
     width: 10%;
     height: 4%;
-    margin-top:20px;
+    margin-top:10px;
 }
 
 
@@ -372,7 +374,7 @@ h3{
 .name-pros{
     margin-bottom: 40px;
 }
-#stock{
+#stock1,#stock2,#stock3,#stock4{
     border: 1px solid rgb(75, 67, 68);
     padding: 15px 30px 15px 30px;
 
@@ -384,25 +386,7 @@ h3{
     display: flex;
     justify-content: space-between;
 }
-/* table{
-    width: 100%;
-    margin: 20px auto;
-}
-thead{
-    background-color: rgba(0, 0, 0, 0.705);
-    color: white;
-}
-table, th, td{
-    border: 1px solid rgb(132, 110, 110) ;
-    border-collapse: collapse;
-}
-th, td{
-    padding: 10px;
-}
-th{
-    font-size: larger;
-   
-} */
+
 .product-sold{
     margin: 40px 0 0 40px;
 }
@@ -412,10 +396,10 @@ th{
 }
 #add-product{
     padding: 7px;
-    background-color: #d63384
+    background-color: red;
     ;
     color: white;
-    border: 1px solid orange;
+    
     border-radius: 5px;
 }
 
@@ -439,7 +423,7 @@ th{
 }
 
 #icon-delete{
-    margin-top: 17px;
+    margin-top: 8px;
 }
 
 /* ==============category=============== */
