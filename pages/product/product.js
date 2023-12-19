@@ -80,52 +80,7 @@ function displayProduct() {
         }
         table.appendChild(tbodys);
     }
-    for (let index in datass) {
 
-        let tr = document.createElement('tr');
-        tr.setAttribute('id', datass[index].category);
-        tr.dataset.index = index;
-
-        let tdId = document.createElement('td');
-        let tdName = document.createElement('td');
-        let tdCategory = document.createElement('td');
-        let tdQuality = document.createElement('td');
-        let tdPrice = document.createElement('td');
-        let tdAction = document.createElement('td');
-
-        let spanDelete = document.createElement('span');
-        let spanEdit = document.createElement('span');
-        let iDelete = document.createElement('i');
-        iDelete.addEventListener('click', toDeletecard);
-        let iEdit = document.createElement('i');
-
-        tdId.textContent = datass[index].id;
-        tdName.textContent = datass[index].name;
-        tdCategory.textContent = datass[index].category;
-        tdQuality.textContent = datass[index].qauntity;
-        tdPrice.textContent = "price" + datass[index].price;
-
-        iDelete.className = "ri-delete-bin-6-line";
-        iEdit.className = "ri-pencil-fill";
-
-        tdAction.appendChild(iDelete);
-        tdAction.appendChild(iEdit);
-
-        spanDelete.appendChild(iDelete);
-        spanEdit.appendChild(iEdit);
-
-        tr.appendChild(tdId);
-        tr.appendChild(tdName);
-        tr.appendChild(tdCategory);
-        tr.appendChild(tdQuality);
-        tr.appendChild(tdPrice);
-        tr.appendChild(tdAction);
-
-        tdAction.appendChild(spanDelete);
-        tdAction.appendChild(spanEdit);
-
-        tbodys.appendChild(tr);
-    }
 }
 
 function addProduct() {
@@ -205,6 +160,9 @@ function toDeletecardcategory(e){
     displayProduct();
 }
 
+// function deletcard(e){
+//     console.log(e.target)
+// }
 // ==========cancel function==========
 let cancel = () => {
     hide(dialog_container);
@@ -218,8 +176,10 @@ select.addEventListener('change', selectData);
 function selectData(e) {
     let alloption = e.target.value;
     let tables = table.lastElementChild.children;
+    
     for ( let opject of tables){
-        let category = opject.id;
+        console.log(opject.children[2].textContent)
+        let category = opject.children[2].textContent;
         if ( category === alloption) {
             opject.style.display = '';
         }
