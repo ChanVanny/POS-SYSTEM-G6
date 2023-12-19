@@ -45,7 +45,7 @@ function displayProduct() {
     card_pro.classList.add('card-products');
 
     for (let index in datass) {
-
+        
         let card = document.createElement('div');
         card.classList.add('card');
         card.setAttribute('id', datass[index].category);
