@@ -1,7 +1,6 @@
-
-function save() {
-    localStorage.setItem('arraycart', JSON.stringify(arraycart));
-}
+let username = document.querySelector('#username');
+let password = document.querySelector('#pw');
+let inputBox = document.querySelector('#login');
 
 function reloadLocal() {
     let cartstorage = JSON.parse(localStorage.getItem('arraycart'))
