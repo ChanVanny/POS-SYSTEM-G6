@@ -24,3 +24,11 @@ td {
     padding: 15px;
     text-align: center;
 }
+.side-bar-bashright{
+    background-color: rgb(225, 218, 218);
+    height: 127%;
+}
+.product-sold{
+    padding: 19px;
+    color: rgba(148, 5, 5, 0.838);
+}

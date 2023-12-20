@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>category</title>
+    <title>Product</title>
     <link rel="stylesheet" href="../../css/style.css">
     <link rel="stylesheet" href="product.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -16,15 +16,15 @@
     <div class="container">
         <div class="show_document">
             <div class="side-bar-left">
-                <img src="../../images/logo.png" class="image_logo" width="55px" alt="logo">
+                <img src="../../images/logos.png" class="image_logo" width="55px" alt="logo">
                 <ul id="menu">
-                    <li><i class="fa fa-shopping-basket" style="font-size:15px;color:rgb(216, 130, 145);"></i><a
+                    <li><i class="fa fa-shopping-basket" style="font-size:17px;color:rgba(148, 5, 5, 0.838);"></i><a
                             href="../dashborad/dashborad.html">Dashborad</a></li>
-                    <li><i class=" fa fa-shopping-cart" style="font-size:15px;color:rgb(216, 130, 145);"></i><a
+                    <li><i class=" fa fa-shopping-cart" style="font-size:17px;color:rgba(148, 5, 5, 0.838);"></i><a
                             href="#">Products</a></li>
-                    <li><i class="fa fa-th" style="font-size:15px;color:rgb(216, 130, 145);"></i><a
+                    <li><i class="fa fa-th" style="font-size:17px;color:rgba(148, 5, 5, 0.838);"></i><a
                             href="../category/category.html">Category</a></li>
-                    <li><i class="fa fa-cart-arrow-down " style="font-size:15px;color:rgb(216, 130, 145);"></i><a
+                    <li><i class="fa fa-cart-arrow-down " style="font-size:17px;color:rgba(148, 5, 5, 0.838);"></i><a
                             href="../../index.html">Order</a></li>
                 </ul>
             </div>
@@ -85,15 +85,16 @@
                     </div>
                 </div>
                 <div class="show-category">
+                    <div class="header-show">
+                        <h2>Filter by category:</h3>
+                    </div>
                     <div class="show-category1">
                         <button class="create-new-card" onclick="onAdd()">Add Product</button>
-                        <div class="header-show">
-                            <h2>Filter by category:</h3>
-                        </div>
+                        
 
                         <select name="category" id="selected">
                             <option value="volvo">choose category</option>
-                            <option value="all">All</option>
+                            <option value="all">All category</option>
                             <option value="drink">Drink</option>
                             <option value="cookie">Cookie</option>
                             <option value="fruit">Fruit</option>
@@ -116,14 +117,7 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <!-- <tr> -->
-                                    <!-- <td>001</td>
-                                    <td>apple</td>
-                                    <td>fruit</td>
-                                    <td>5</td>
-                                    <td>3$</td>
-                                    <td></td> -->
-                                <!-- </tr> -->
+                                
                             </tbody>
                         </table>
                     </div>

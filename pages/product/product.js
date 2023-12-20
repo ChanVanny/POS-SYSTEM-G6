@@ -21,6 +21,9 @@ function reload() {
     }
 
 }
+
+// =============== to create card ===========
+
 let input_id = document.querySelector('#id');
 let input_name = document.querySelector('#name')
 let input_price = document.querySelector('#price');
@@ -34,9 +37,8 @@ function displayProduct() {
     if(datass.length){
         for (let index in datass) {
             let tr = document.createElement('tr');
-            // tr.setAttribute('id', datass[index].category);
             tr.dataset.index = index;
-    
+
             let tdId = document.createElement('td');
             let tdName = document.createElement('td');
             let tdCategory = document.createElement('td');
@@ -83,6 +85,9 @@ function displayProduct() {
 
 }
 
+
+// ============add product card============
+
 function addProduct() {
     const data = {
         id: input_id.value,
@@ -97,6 +102,7 @@ function addProduct() {
     };
 }
 
+
 function resetInput(){
     input_id.value = ""
     input_name.value = ""
@@ -104,6 +110,9 @@ function resetInput(){
     input_quatity.value = ""
     input_category.value = ""
 }
+
+
+// =============to update card===========
 
 function updateProduct(){
     let index = localStorage.getItem('index') 
@@ -119,6 +128,8 @@ function updateProduct(){
         resetData()
     }
 }
+
+// ============edit product=============
 
 function onEditProduct(e){
     const index = e.target.parentElement.parentElement.parentElement.dataset.index;
@@ -160,9 +171,7 @@ function toDeletecardcategory(e){
     displayProduct();
 }
 
-// function deletcard(e){
-//     console.log(e.target)
-// }
+
 // ==========cancel function==========
 let cancel = () => {
     hide(dialog_container);
@@ -172,6 +181,9 @@ let cancel = () => {
 
 search.addEventListener('keyup', searchNameproduct);
 select.addEventListener('change', selectData);
+
+
+// ==============to select product================
 
 function selectData(e) {
     let alloption = e.target.value;
@@ -192,6 +204,9 @@ function selectData(e) {
     }
 }
 
+
+
+// ===============search product================
 function searchNameproduct(e) {
     let namePro = e.target.value;
     let table = document.querySelector('table');
