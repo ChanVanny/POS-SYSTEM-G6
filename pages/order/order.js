@@ -326,7 +326,7 @@ function filterOpjects(name) {
 
 let categories = [
     { id: 1, name: "Drink", description: "test" },
-    { id: 2, name: "Cake", description: "test" },
+    { id: 2, name: "Cookie", description: "test" },
     { id: 3, name: "Fruit", description: "test" },
 ];
 if (localStorage.getItem("categories") != null) {
