@@ -201,8 +201,10 @@ label {
 }
 
 .btn_dialog {
-    padding: 5px 20px;
-    margin-bottom: 10px;
+    display: flex;
+    justify-content: end;
+    gap: 5px;
+    margin: 0 10px 10px 0;
 }
 
 .error {
@@ -210,7 +212,6 @@ label {
 }
 
 .create-new-card {
-
     background-color: black;
     color: white;
     margin: 8px 14px;
