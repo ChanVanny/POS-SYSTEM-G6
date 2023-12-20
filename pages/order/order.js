@@ -1,14 +1,12 @@
 let card_pro = document.querySelector('.card-products');
 let dialog_container = document.querySelector('.dialog_container')
 let sideba_center = document.querySelector('.side-bar-center');
-// let btn_search = document.querySelector('#button-addon2');
 let search_input = document.querySelector('.form-control');
 let box_store = document.querySelector('.on-detail');
-
-
+let tdtotalprice = document.querySelector('#total');
 
 let datass = [];
-
+let arraycart = [];
 
 // ========== Hide function=========
 let hide = (element) => {
@@ -21,15 +19,18 @@ let show = (element) => {
 
 function saveLocalstorage() {
     localStorage.setItem('datass', JSON.stringify(datass));
+    localStorage.setItem('arraycart', JSON.stringify(arraycart));
 }
 
 function reload() {
     let productstorage = JSON.parse(localStorage.getItem('datass'))
+    let cartstorage = JSON.parse(localStorage.getItem('arraycart'))
     if (productstorage != null) {
         datass = productstorage;
-        addProduct();
     }
-
+    if (cartstorage != null) {
+        arraycart = cartstorage;
+    }
 }
 let input_id = document.querySelector('#id');
 let input_name = document.querySelector('#name')
@@ -38,7 +39,6 @@ let input_quantity = document.querySelector('#quantity');
 let input_category = document.querySelector('#category');
 
 let onAdd = () => {
-    // btn_dialog.lastElementChild.textContent = "Add Product";
     show(dialog_container);
 }
 
@@ -53,8 +53,6 @@ function displayProduct() {
         card.classList.add('card');
         card.setAttribute('id', datass[index].category);
         card.dataset.index = index;
-
-        // card.addEventListener('click',createCard);
 
         let h4 = document.createElement('h4');
         h4.classList.add('name-pro')
@@ -80,7 +78,6 @@ function displayProduct() {
         p.classList.add('price')
         p.textContent = datass[index].price + '$';
 
-
         let btn = document.createElement('button');
         btn.setAttribute('id', 'add-card');
         btn.textContent = 'Order';
@@ -95,7 +92,6 @@ function displayProduct() {
 
         icon_delete.addEventListener('click', delect);
 
-
         card_pro.appendChild(card);
         card.appendChild(h4);
         h4.appendChild(bold)
@@ -105,13 +101,15 @@ function displayProduct() {
         pp.appendChild(span)
         pp.appendChild(span_num)
         div.appendChild(p)
-        card.appendChild(btn)
-        card.appendChild(icon_delete)
+        const actionBtn = document.createElement('div')
+        actionBtn.classList.add("actionBtn")
+        actionBtn.appendChild(btn)
+        actionBtn.appendChild(icon_delete)
+        card.appendChild(actionBtn)
+        // card.appendChild(icon_delete)
     }
     sideba_center.appendChild(card_pro);
-
 }
-
 
 function delect(e) {
     let index = e.target.closest('.card').dataset.index;
@@ -120,72 +118,27 @@ function delect(e) {
     displayProduct();
 }
 
-
 // =========== Cancel function ==========
 let cancel = () => {
     hide(dialog_container);
-    // reload();
-}
-
-
-function addProduct() {
-    // e.preventDefault();
-    data = {
-        id: input_id.value,
-        name: input_name.value,
-        price: input_price.value,
-        qauntity: input_quantity.value,
-        category: input_category.value,
-    };
-
-    if (input_name.value != "" && input_price.value != "") {
-        datass.push(data);
-
-        saveLocalstorage();
-        displayProduct();
-    }
-
-    saveLocalstorage();
-    displayProduct();
-
-
 }
 
 // =============todisplay===============
-
-let cartss = JSON.parse(localStorage.getItem('datass'));
-
-
-function saveCard() {
-    localStorage.setItem('cartss', JSON.stringify(cartss));
-}
-
-
-productstorage = JSON.parse(localStorage.getItem('datass'));
-
-
-let arraycart = [];
 
 function save() {
     localStorage.setItem('arraycart', JSON.stringify(arraycart));
 }
 
-function reloadLocal() {
-    let cartstorage = JSON.parse(localStorage.getItem('arraycart'))
-    if (cartstorage != null) {
-        arraycart = cartstorage;
-        Card();
-    }
-}
 let ul = document.querySelector('#order-list')
 function cartdetail() {
-
-    ul.remove()
+    const orderlist = document.querySelector('#order-list');
+    orderlist.remove()
     ul = document.createElement('ul');
-    ul.setAttribute('id', '#order-list');
+    ul.setAttribute('id', 'order-list');
     for (let i in arraycart) {
         let li = document.createElement('li');
         li.classList.add('list');
+        li.dataset.index = i
 
         let span_name = document.createElement('span');
         span_name.setAttribute('id', 'detail');
@@ -195,23 +148,19 @@ function cartdetail() {
         input_select.setAttribute('id', 'details');
         input_select.setAttribute('class', 'detail');
         input_select.type = 'number';
-        input_select.value = 1;
-
+        input_select.min = 1
+        input_select.value = Math.floor(arraycart[i].total / arraycart[i].price);
         input_select.addEventListener('change', getQuatities);
-
-        // let qauntity =document.querySelector('#details')
-        // console.log(qauntity)
 
         let span_price1 = document.createElement('span');
         span_price1.setAttribute('id', 'detail');
         span_price1.setAttribute('class', 'price');
-        span_price1.textContent = arraycart[i].price;
+        span_price1.textContent = "$" + arraycart[i].price;
 
         let span_price2 = document.createElement('span');
         span_price2.setAttribute('id', 'detail');
         span_price2.setAttribute('class', 'price');
-        span_price2.textContent = arraycart[i].price;
-
+        span_price2.textContent = "$" + arraycart[i].total;
 
         let icon_deletes = document.createElement('i');
         icon_deletes.setAttribute('id', 'icon-delete');
@@ -221,78 +170,66 @@ function cartdetail() {
 
         icon_deletes.addEventListener('click', deleteDetail);
 
-        // stor_card.appendChild(ul);
         ul.appendChild(li);
         li.appendChild(span_name);
         li.appendChild(input_select);
         li.appendChild(span_price1);
         li.appendChild(span_price2);
         li.appendChild(icon_deletes);
-
     }
     box_store.appendChild(ul);
 }
 
-
 function Card(e) {
-
-    let card_index = e.target.parentElement.dataset.index;
-    let name_product = e.target.parentElement.children[0].children[0].textContent;
-    let price_unique = e.target.parentElement.children[1].children[0].children[1].textContent;
-    let card_qauntity = e.target.parentElement.children[1].children[0].firstElementChild.children[1].textContent
+    let card_index = e.target.parentElement.parentElement.dataset.index;
+    let name_product = datass[card_index].name;
+    let card_qauntity = datass[card_index].qauntity
 
     let item = {
         id: card_index,
         name: name_product,
-        price: price_unique,
+        price: parseInt(datass[card_index].price),
         qauntity: card_qauntity,
+        total: parseInt(datass[card_index].price),
     }
-    arraycart.push(item)
+    const index = arraycart.findIndex((element) => element.id === item.id)
+    if (index == -1) {
+        arraycart.push(item)
+    }
+    else {
+        arraycart[index].total += parseInt(datass[index].price)
+    }
     save();
+    reload()
     cartdetail();
+    getTotal()
 }
-
-save()
-cartdetail()
-
-
-let tdtotalprice = document.querySelector('#total');
-
-let orderlist = document.querySelector('#order-list');
-
 
 function getTotal() {
     let totalprice = document.querySelector('.total-price');
     let tototal = 0;
     let arrs = box_store.children[2].children;
-    for (let list of arrs) {
-        console.log(list.children[3])
-        let costprice = list.children[3].textContent;
-        console.log(costprice)
-        let unitprice = costprice.replace("$", "");
-        tototal += parseInt(unitprice)
+    for (let cart of arraycart) {
+        tototal += parseInt(cart.total)
     }
     totalprice.textContent = tototal + "$";
 }
 
 function getQuatities(e) {
-    let qualities = e.target.value;
-    let uniquetotalprice = e.target.nextElementSibling;
-    let tdtotal = e.target.nextElementSibling.nextElementSibling;
-
-    // let tdtotal =e.target.closest('td').nextElementSibling;
-    let unitprice = uniquetotalprice.textContent.replace("$", "");
-    tdtotal.textContent = parseInt(unitprice) * parseInt(qualities) + '$';
+    const index = e.target.parentElement.dataset.index
+    let quantity = e.target.value;
+    arraycart[index].total = arraycart[index].price * quantity
+    saveLocalstorage()
+    cartdetail()
     getTotal();
 }
-
-getTotal();
-
-
 function deleteDetail(e) {
     e.target.closest('li').remove();
+    const index = e.target.parentElement.dataset.index
+    arraycart.splice(index, 1)
+    save()
+    getTotal()
 };
-
 search_input.addEventListener('keyup', toSearchProduct);
 
 function toSearchProduct(e) {
@@ -344,11 +281,11 @@ for (let x of categories) {
     btnn.textContent = x.name
     btnn.setAttribute("onclick", "filterOpjects('" + x.name.toLowerCase() + "')");
     btns.appendChild(btnn)
-
-
 }
 
-
 reload();
-reloadLocal();
+displayProduct()
+getTotal();
+cartdetail()
+
 

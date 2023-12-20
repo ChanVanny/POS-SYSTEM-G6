@@ -31,10 +31,10 @@ let input_quatity = document.querySelector('#quantity');
 let input_category = document.querySelector('#category');
 
 function displayProduct() {
-    const tbody = document.querySelector('tbody');
-    tbody.remove();
-    let tbodys = document.createElement('tbody');
-    if(datass.length){
+    if(datass.length>=0){
+        const tbody = document.querySelector('tbody');
+        tbody.remove();
+        let tbodys = document.createElement('tbody');
         for (let index in datass) {
             let tr = document.createElement('tr');
             tr.dataset.index = index;
@@ -168,6 +168,7 @@ function toDeletecardcategory(e){
     let index = e.target.closest('tr').dataset.index;
     datass.splice(index, 1);
     saveLocalstorage();
+    reload()
     displayProduct();
 }
 
