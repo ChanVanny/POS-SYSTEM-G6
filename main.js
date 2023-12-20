@@ -7,47 +7,47 @@ let box_store = document.querySelector('.on-detail');
 
 
 
-let datass = [];
+// let datass = [];
 
 
-// ========== Hide function=========
-let hide = (element) => {
-    element.style.display = "none";
-}
+// // ========== Hide function=========
+// let hide = (element) => {
+//     element.style.display = "none";
+// }
 
-let show = (element) => {
-    element.style.display = "block";
-}
+// let show = (element) => {
+//     element.style.display = "block";
+// }
 
-function saveLocalstorage() {
-    localStorage.setItem('datass', JSON.stringify(datass));
-}
+// function saveLocalstorage() {
+//     localStorage.setItem('datass', JSON.stringify(datass));
+// }
 
-function reload() {
-    let productstorage = JSON.parse(localStorage.getItem('datass'))
-    if (productstorage != null) {
-        datass = productstorage;
-        addProduct();
-    }
+// function reload() {
+//     let productstorage = JSON.parse(localStorage.getItem('datass'))
+//     if (productstorage != null) {
+//         datass = productstorage;
+//         addProduct();
+//     }
 
-}
-let input_id = document.querySelector('#id');
-let input_name = document.querySelector('#name')
-let input_price = document.querySelector('#price');
-let input_quantity = document.querySelector('#quantity');
-let input_category = document.querySelector('#category');
+// }
+// let input_id = document.querySelector('#id');
+// let input_name = document.querySelector('#name')
+// let input_price = document.querySelector('#price');
+// let input_quantity = document.querySelector('#quantity');
+// let input_category = document.querySelector('#category');
 
-let onAdd = () => {
-    // btn_dialog.lastElementChild.textContent = "Add Product";
-    show(dialog_container);
-}
+// let onAdd = () => {
+//     // btn_dialog.lastElementChild.textContent = "Add Product";
+//     show(dialog_container);
+// }
 
-function displayProduct() {
-    card_pro.remove()
-    card_pro = document.createElement('div');
-    card_pro.classList.add('card-products');
+// function displayProduct() {
+//     card_pro.remove()
+//     card_pro = document.createElement('div');
+//     card_pro.classList.add('card-products');
 
-    for (let index in datass) {
+//     for (let index in datass) {
 
         let card = document.createElement('div');
         card.classList.add('card');
@@ -56,29 +56,29 @@ function displayProduct() {
 
         // card.addEventListener('click',createCard);
 
-        let h4 = document.createElement('h4');
-        h4.classList.add('name-pro')
-        let bold = document.createElement('b');
-        bold.textContent = datass[index].name;
+//         let h4 = document.createElement('h4');
+//         h4.classList.add('name-pro')
+//         let bold = document.createElement('b');
+//         bold.textContent = datass[index].name;
 
-        let text_content = document.createElement('div');
-        text_content.classList.add('text-content-card');
+//         let text_content = document.createElement('div');
+//         text_content.classList.add('text-content-card');
 
-        let div = document.createElement('div');
-        div.classList.add('quantity');
+//         let div = document.createElement('div');
+//         div.classList.add('quantity');
 
-        let pp = document.createElement('p');
-        let span = document.createElement('span');
-        span.classList.add('quan');
-        span.textContent = 'quantity :';
+//         let pp = document.createElement('p');
+//         let span = document.createElement('span');
+//         span.classList.add('quan');
+//         span.textContent = 'quantity :';
 
-        let span_num = document.createElement('span');
-        span_num.classList.add('num')
-        span_num.textContent = datass[index].qauntity;
+//         let span_num = document.createElement('span');
+//         span_num.classList.add('num')
+//         span_num.textContent = datass[index].qauntity;
 
-        let p = document.createElement('p');
-        p.classList.add('price')
-        p.textContent = datass[index].price + '$';
+//         let p = document.createElement('p');
+//         p.classList.add('price')
+//         p.textContent = datass[index].price + '$';
 
 
         let btn = document.createElement('button');
@@ -87,45 +87,45 @@ function displayProduct() {
 
         btn.addEventListener('click', Card);
 
-        let icon_delete = document.createElement('i');
-        icon_delete.setAttribute('id', 'icon-delete');
-        icon_delete.className = 'fa fa-trash';
-        icon_delete.style.fontSize = '25px';
-        icon_delete.style.color = 'red';
+//         let icon_delete = document.createElement('i');
+//         icon_delete.setAttribute('id', 'icon-delete');
+//         icon_delete.className = 'fa fa-trash';
+//         icon_delete.style.fontSize = '25px';
+//         icon_delete.style.color = 'red';
 
-        icon_delete.addEventListener('click', delect);
-
-
-        card_pro.appendChild(card);
-        card.appendChild(h4);
-        h4.appendChild(bold)
-        card.appendChild(text_content);
-        text_content.appendChild(div);
-        div.appendChild(pp)
-        pp.appendChild(span)
-        pp.appendChild(span_num)
-        div.appendChild(p)
-        card.appendChild(btn)
-        card.appendChild(icon_delete)
-    }
-    sideba_center.appendChild(card_pro);
-
-}
+//         icon_delete.addEventListener('click', delect);
 
 
-function delect(e) {
-    let index = e.target.closest('.card').dataset.index;
-    datass.splice(index, 1);
-    saveLocalstorage();
-    displayProduct();
-}
+//         card_pro.appendChild(card);
+//         card.appendChild(h4);
+//         h4.appendChild(bold)
+//         card.appendChild(text_content);
+//         text_content.appendChild(div);
+//         div.appendChild(pp)
+//         pp.appendChild(span)
+//         pp.appendChild(span_num)
+//         div.appendChild(p)
+//         card.appendChild(btn)
+//         card.appendChild(icon_delete)
+//     }
+//     sideba_center.appendChild(card_pro);
+
+// }
 
 
-// =========== Cancel function ==========
-let cancel = () => {
-    hide(dialog_container);
-    // reload();
-}
+// function delect(e) {
+//     let index = e.target.closest('.card').dataset.index;
+//     datass.splice(index, 1);
+//     saveLocalstorage();
+//     displayProduct();
+// }
+
+
+// // =========== Cancel function ==========
+// let cancel = () => {
+//     hide(dialog_container);
+//     // reload();
+// }
 
 
 function addProduct() {
@@ -145,13 +145,13 @@ function addProduct() {
         displayProduct();
     }
 
-    saveLocalstorage();
-    displayProduct();
+//     saveLocalstorage();
+//     displayProduct();
 
 
 }
 
-// =============todisplay===============
+// // =============todisplay===============
 
 let cartss = JSON.parse(localStorage.getItem('datass'));
 

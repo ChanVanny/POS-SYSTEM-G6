@@ -1,47 +1,37 @@
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login page</title>
-    <link rel="stylesheet" href="/css/login.css">
-    <script src="main.js" defer></script>
-    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.4.0/fonts/remixicon.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+    <title>js</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <script src="./order.js" defer></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 
 <body style="background-color:none">
     <div class="container">
         <div class="show_document">
             <div class="side-bar-left">
-                <img src="images/logos.png" class="image_logo" width="65px" alt="logo"
-                    style="color:rgba(148, 5, 5, 0.838);">
+                <img src="/images/logos.png" class="image_logo" width="65px" alt="logo" style="color:rgba(148, 5, 5, 0.838);">
                 <ul id="menu">
                     <li><i class="fa fa-shopping-basket" style="font-size:17px;color:rgba(148, 5, 5, 0.838);"></i><a
-                            href="pages/dashborad/dashborad.html" style="font-size: 13px;">Dashborad</a></li>
-                    <li><i class=" fa fa-cart-arrow-down" style="font-size:17px;color:rgba(148, 5, 5, 0.838);"></i><a
-                            href="pages/product/product.html" style="font-size: 13px;">Product</a></li>
+                            href="/pages/dashborad/dashborad.html" style="font-size: 13px;">Dashborad</a></li>
+                    <li><i class="fa fa-shopping-cart" style="font-size:17px;color:rgba(148, 5, 5, 0.838);"></i><a
+                            href="/pages/product/product.html" style="font-size: 13px;">Products</a></li>
                     <li><i class="fa fa-th" style="font-size:17px;color:rgba(148, 5, 5, 0.838);"></i><a
-                            href="pages/category/category.html" style="font-size: 13px;">Category</a></li>
-                    <li><i class="fa fa-shopping-cart	" style="font-size:17px;color:rgba(148, 5, 5, 0.838);"></i><a
+                            href="/pages/category/category.html" style="font-size: 13px;">Category</a></li>
+                    <li><i class="	fa fa-cart-arrow-down" style="font-size:17px;color:rgba(148, 5, 5, 0.838);"></i><a
                             href="#">Order</a></li>
                 </ul>
             </div>
             <div class="side-bar-center">
                 <div class="header">
-                    <h2 class="head2">POS SYSTEM1</h2>
+                    <h2 class="head2">POS SYSTEM</h2>
                 </div>
-                <!-- <div id="pills-pie">
-                    <select class="form-select" aria-label="Default select example">
-                        <option selected class="selected">All Gategories</option>
-                        <option value="1" id="pills-home-pie" data-bs-toggle="pill"
-                        data-bs-target="#pills-home" >Drink</option>
-                        <option value="2">Cookie</option>
-                        <option value="3">Fruit</option>
-                    </select>
-                </div> -->
-                <div class="button btncategory">
+                <div class="button">
                     <button class="btn" onclick="filterOpjects('all')">All</button>
                     <button class="btn" onclick="filterOpjects('drink')">Drink</button>
                     <button class="btn" onclick="filterOpjects('cookie')">Cookie</button>
@@ -49,24 +39,13 @@
                 </div>
 
                 <div class="content">
-                    <!-- <button class="create-new-card" onclick="onAdd()"></button> -->
+                    <button class="create-new-card" onclick="onAdd()">Add Product</button>
                     <div class="input-group">
                         <input type="text" class="form-control" placeholder="search name product..">
-
+                       
                     </div>
                 </div>
                 <div class="card-products" id="pills-home" role="piepanel" aria-labelledby="pills-home-pie">
-                    <!-- <div class="card" id="cards">
-                       
-                        <h4 class="name-pro"><b>RruMoo</b></h4>
-                        <div class="text-content-card">
-                            <div class="quantity">
-                                <p><span>Quantity:</span><span>4</span></p>
-                                <p class="price">$5:00</p>
-                            </div>
-                        </div>
-                        <button id="add-card">add to card</button>
-                    </div> -->
 
                 </div>
 
@@ -111,9 +90,9 @@
                             <option value="12">12</option>
                             <option value="23">23</option>
                             <option value="50">50</option>
-                            <option value="100">100</option>
-                            <option value="10">10</option>
-                            <option value="30">30</option>
+                            <option value="50">100</option>
+                            <option value="50">10</option>
+                            <option value="50">30</option>
                         </select>
                         <p class="error_size error" style="display: none;">Choose Size*</p>
                     </div>
@@ -126,35 +105,24 @@
 
             <div class="side-bar-right">
                 <div class="header2">
-                    <i class="fa fa-sign-out" id="iconlogout" style="font-size:20px;color:black;"></i>
+                    <a href="/index.html"><i class="fa fa-sign-out" id="iconlogout" style="font-size:20px;color:black;"></i></a>
                     <i class="	fa fa-cart-arrow-down" id="iconcard" style="font-size:20px;color:black;"></i>
                 </div>
                 <div class="box-store-card">
-                    <div class="on-detail">
-                        <h3>Current Order</h3>
-                        <hr>
-                        <ul id="order-list" class="list-unstyled">
-                            <!-- <li class="list">
-                                
-                                <span id="detail">Trumoo</span>
-                                <input id="detail" class="detail" type="number" value="1">
-                       
-                       
-                                <span id="detail" class="price ">$ 0.99</span>
-                            </li> -->
-
-                        </ul>
-                    </div>
-
+                    <h3>Current Order</h3>
+                    <hr>
+                    <ul id="order-list" class="list-unstyled">
+                    </ul>
                     <h4 id="total">Total: <span class="total-price">0</span></h4>
 
                     <button class="order">Checkout</button>
-
                 </div>
+                
 
             </div>
         </div>
-    </section>
+    </div>
+
 </body>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
 </html>
