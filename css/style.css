@@ -368,19 +368,11 @@ h3{
 .side-bar-bashright{
     width: 100%;
 }
-.stock-content{
-    display: flex;
-    justify-content: space-evenly;
-    margin-top: 20px;
-}
+
 .name-pros{
     margin-bottom: 40px;
 }
-#stock1,#stock2,#stock3,#stock4{
-    border: 1px solid rgb(75, 67, 68);
-    padding: 15px 30px 15px 30px;
 
-}
 .header-dash{
     padding: 24px;
 }

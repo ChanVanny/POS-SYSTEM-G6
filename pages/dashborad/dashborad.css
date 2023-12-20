@@ -32,3 +32,37 @@ td {
     padding: 19px;
     color: rgba(148, 5, 5, 0.838);
 }
+
+.stock-content{
+    display: flex;
+    justify-content: space-evenly;
+    background-color: black;
+    border-radius: 10px;
+    width: 90%;
+    margin: auto;
+    margin-top: 20px;
+    height: 20%;
+}
+.stock{
+    background-color: white;
+    border-radius: 10px;
+    margin: 20px;
+    width: 18%;
+    align-items: center;
+}
+.stock h3{
+    font-size: larger;
+    align-items: center;
+    text-align: center;
+}
+#stock1,#stock2,#stock3,#stock4{
+    display: flex;
+    text-align: center;
+    margin: 0 100px 20px 100px;
+    font-size: larger;
+
+}
+.stock:hover{
+    background-color: rgba(148, 5, 5, 0.838);
+    color: white;
+}
