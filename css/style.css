@@ -263,16 +263,18 @@ label {
 .card {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
     transition: 0.3s;
-    width: 20%;
+    width: 21%;
     margin: 10px;
     border-radius: 8px;
     background-color: rgba(255, 255, 255, 0.612);
-    height: 50%;
+    height: 60%;
 }
 .name-pro{
     padding: 8px;
     border: 1px solid black;
     border-radius: 8px 8px 0 0;
+    background-color: black;
+    color: white;
 }
 .quantity{
     /* display: flex; */
