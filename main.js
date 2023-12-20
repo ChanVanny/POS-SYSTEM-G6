@@ -322,6 +322,30 @@ function filterOpjects(name) {
     }
 }
 
+
+
+let categories = [
+    { id: 1, name: "Drink", description: "test" },
+    { id: 2, name: "Cake", description: "test" },
+    { id: 3, name: "Fruit", description: "test" },
+];
+if (localStorage.getItem("categories") != null) {
+    categories = JSON.parse(localStorage.getItem("categories"));
+}
+localStorage.setItem('categories', JSON.stringify(categories))
+
+let btns = document.querySelector('.btncategory');
+for (let x of categories){
+   
+    let btnn = document.createElement('button')
+    btnn.classList.add('btn');
+    btnn.textContent=x.name
+    btnn.setAttribute("onclick", "filterOpjects('"+x.name.toLowerCase()+"')");
+    btns.appendChild(btnn)
+   
+   
+}
+
 reload();
 reloadLocal();
 
