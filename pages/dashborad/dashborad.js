@@ -23,6 +23,7 @@ function toreload(){
 let tbody = document.querySelector('tbody');
 
 function productsell(){
+
     for (let index in arr){
         let tr = document.createElement('tr');
         let th1 = document.createElement('th');
@@ -44,8 +45,7 @@ function productsell(){
         tbody.appendChild(tr)
         
     }
-    
-   
+
 }
 
 function product(){
