@@ -2,160 +2,27 @@ let username = document.querySelector('#username');
 let password = document.querySelector('#pw');
 let inputBox = document.querySelector('#login');
 
-function reloadLocal() {
-    let cartstorage = JSON.parse(localStorage.getItem('arraycart'))
-    if (cartstorage != null) {
-        arraycart = cartstorage;
-        Card();
-    }
-}
-let ul = document.querySelector('#order-list')
-function cartdetail() {
-   
-    ul.remove()
-    ul = document.createElement('ul');
-    ul.setAttribute('id','#order-list');
-    for (let i in arraycart) {
-        let li = document.createElement('li');
-        li.classList.add('list');
+let accs = [
+    {username:"user", password:"2024"},
+    {username:"vanny", password:"1010"},
+]
 
-        let span_name = document.createElement('span');
-        span_name.setAttribute('id', 'detail');
-        span_name.textContent = arraycart[i].name;
-
-        let input_select = document.createElement('input');
-        input_select.setAttribute('id', 'details');
-        input_select.setAttribute('class', 'detail');
-        input_select.type = 'number';
-        input_select.value = 1;
-
-        input_select.addEventListener('change', getQuatities);
-
-        // let qauntity =document.querySelector('#details')
-        // console.log(qauntity)
-
-        let span_price1 = document.createElement('span');
-        span_price1.setAttribute('id', 'detail');
-        span_price1.setAttribute('class', 'price');
-        span_price1.textContent = arraycart[i].price;
-
-        let span_price2 = document.createElement('span');
-        span_price2.setAttribute('id', 'detail');
-        span_price2.setAttribute('class', 'price');
-        span_price2.textContent = arraycart[i].price;
-
-
-        let icon_deletes = document.createElement('i');
-        icon_deletes.setAttribute('id', 'icon-delete');
-        icon_deletes.className = 'fa fa-trash';
-        icon_deletes.style.fontSize = '25px';
-        icon_deletes.style.color = 'red';
-
-        icon_deletes.addEventListener('click', deleteDetail);
-
-        // stor_card.appendChild(ul);
-        ul.appendChild(li);
-        li.appendChild(span_name);
-        li.appendChild(input_select);
-        li.appendChild(span_price1);
-        li.appendChild(span_price2);
-        li.appendChild(icon_deletes);
-
-    }
-    box_store.appendChild(ul);
-}
-
-
-function Card(e) {
+// login function
+function login(){
+    let name = username.value;
+    let pw = password.value;
+    let isTrue = false
     
-    let card_index = e.target.parentElement.dataset.index;
-    let name_product = e.target.parentElement.children[0].children[0].textContent;
-    let price_unique = e.target.parentElement.children[1].children[0].children[1].textContent;
-    let card_qauntity = e.target.parentElement.children[1].children[0].firstElementChild.children[1].textContent
-
-    let item = {
-        id: card_index,
-        name: name_product,
-        price: price_unique,
-        qauntity: card_qauntity,
-    }
-    arraycart.push(item)
-    save();
-    cartdetail();
-}
-
-save()
-cartdetail()
-
-
-let tdtotalprice = document.querySelector('#total');
-
-let orderlist = document.querySelector('#order-list');
-
-
-function getTotal(){
-    let totalprice = document.querySelector('.total-price');
-    let tototal =0;
-    let arrs = box_store.children[2].children;
-    for (let list of arrs){
-        console.log(list.children[3])
-        let costprice = list.children[3].textContent;
-        console.log(costprice)
-        let unitprice = costprice.replace("$", "");
-        tototal +=parseInt(unitprice)
-    }
-    totalprice.textContent = tototal + "$";
-}
-
-function getQuatities(e) {
-    let qualities = e.target.value;
-    let uniquetotalprice = e.target.nextElementSibling;
-    let tdtotal = e.target.nextElementSibling.nextElementSibling;
-
-    // let tdtotal =e.target.closest('td').nextElementSibling;
-    let unitprice = uniquetotalprice.textContent.replace("$", "");
-    tdtotal.textContent = parseInt(unitprice) * parseInt(qualities) + '$';
-    getTotal();
-}
-
-getTotal();
-
-
-function deleteDetail(e) {
-    e.target.closest('li').remove();
-};
-
-search_input.addEventListener('keyup', toSearchProduct);
-
-function toSearchProduct(e) {
-    let text = e.target.value;
-    let pronames = document.querySelectorAll('.name-pro');
-
-    for (let proname of pronames) {
-        let name_pro = proname.children[0].textContent;
-        if (name_pro.indexOf(text) !== -1) {
-            proname.parentElement.style.display = ""
-        } else {
-            proname.parentElement.style.display = "none"
+    for( let acc of accs){
+        if(acc.username == name && acc.password == pw){
+            isTrue = true
         }
     }
-}
-
-function filterOpjects(name) {
-    let pronames = document.querySelectorAll('.name-pro');
-    for (let proname of pronames) {
-        let category = proname.parentElement.id;
-        if (category === name) {
-            proname.parentElement.style.display = '';
-        } else if (name === 'all') {
-            proname.parentElement.style.display = '';
-        }
-        else {
-            proname.parentElement.style.display = 'none';
-        }
+    if(isTrue){
+        window.location.href = "/pages/order/order.html"
+    }
+    else{
+        alert('Your password is not correct!')
     }
 }
-
-reload();
-reloadLocal();
-
+inputBox.addEventListener('click', login);
