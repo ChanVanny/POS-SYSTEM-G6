@@ -57,7 +57,7 @@ function displayProduct() {
             tdName.textContent = datass[index].name;
             tdCategory.textContent = datass[index].category;
             tdQuality.textContent = datass[index].qauntity;
-            tdPrice.textContent = "price" + datass[index].price;
+            tdPrice.textContent = "$ "+datass[index].price;
     
             iDelete.className = "ri-delete-bin-6-line";
             iEdit.className = "ri-pencil-fill";

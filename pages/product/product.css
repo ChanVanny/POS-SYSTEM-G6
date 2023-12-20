@@ -43,6 +43,8 @@ body {
 }
 
 hr {
+    width: 90%;
+    margin: auto;
     margin-top: 10px;
     border: black solid 1px;
 }
@@ -74,7 +76,7 @@ td {
 }
 
 td span i {
-    background-color: teal;
+    background-color: rgba(148, 5, 5, 0.838);;
     padding: 10px;
     border-radius: 50%;
     color: white;
@@ -162,8 +164,10 @@ label {
     color: white;
     margin: 8px 14px;
     border-radius: 5px;
-    padding: 8px;
-    width: 22%;
+    padding: 10px;
+    width: 20%;
+    border: none;
+
 }
 
 
