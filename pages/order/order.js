@@ -179,10 +179,10 @@ function reloadLocal() {
 }
 let ul = document.querySelector('#order-list')
 function cartdetail() {
-   
+
     ul.remove()
     ul = document.createElement('ul');
-    ul.setAttribute('id','#order-list');
+    ul.setAttribute('id', '#order-list');
     for (let i in arraycart) {
         let li = document.createElement('li');
         li.classList.add('list');
@@ -235,7 +235,7 @@ function cartdetail() {
 
 
 function Card(e) {
-    
+
     let card_index = e.target.parentElement.dataset.index;
     let name_product = e.target.parentElement.children[0].children[0].textContent;
     let price_unique = e.target.parentElement.children[1].children[0].children[1].textContent;
@@ -261,16 +261,16 @@ let tdtotalprice = document.querySelector('#total');
 let orderlist = document.querySelector('#order-list');
 
 
-function getTotal(){
+function getTotal() {
     let totalprice = document.querySelector('.total-price');
-    let tototal =0;
+    let tototal = 0;
     let arrs = box_store.children[2].children;
-    for (let list of arrs){
+    for (let list of arrs) {
         console.log(list.children[3])
         let costprice = list.children[3].textContent;
         console.log(costprice)
         let unitprice = costprice.replace("$", "");
-        tototal +=parseInt(unitprice)
+        tototal += parseInt(unitprice)
     }
     totalprice.textContent = tototal + "$";
 }
@@ -323,6 +323,30 @@ function filterOpjects(name) {
         }
     }
 }
+
+let categories = [
+    { id: 1, name: "Drink", description: "test" },
+    { id: 2, name: "Cake", description: "test" },
+    { id: 3, name: "Fruit", description: "test" },
+];
+if (localStorage.getItem("categories") != null) {
+    categories = JSON.parse(localStorage.getItem("categories"));
+}
+localStorage.setItem('categories', JSON.stringify(categories))
+
+let btns = document.querySelector('.btncategory');
+for (let x of categories) {
+
+    let btnn = document.createElement('button')
+    btnn.classList.add('btn');
+    btnn.textContent = x.name
+    btnn.setAttribute("onclick", "filterOpjects('" + x.name.toLowerCase() + "')");
+    btns.appendChild(btnn)
+
+
+}
+
+
 
 reload();
 reloadLocal();
