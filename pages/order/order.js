@@ -309,6 +309,8 @@ function toSearchProduct(e) {
     }
 }
 
+// =======select opject==============
+
 function filterOpjects(name) {
     let pronames = document.querySelectorAll('.name-pro');
     for (let proname of pronames) {
@@ -345,7 +347,6 @@ for (let x of categories) {
 
 
 }
-
 
 
 reload();
