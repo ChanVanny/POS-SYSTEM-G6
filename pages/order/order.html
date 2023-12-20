@@ -1,0 +1,128 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>js</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <script src="./order.js" defer></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body style="background-color:none">
+    <div class="container">
+        <div class="show_document">
+            <div class="side-bar-left">
+                <img src="/images/logos.png" class="image_logo" width="65px" alt="logo" style="color:rgba(148, 5, 5, 0.838);">
+                <ul id="menu">
+                    <li><i class="fa fa-shopping-basket" style="font-size:17px;color:rgba(148, 5, 5, 0.838);"></i><a
+                            href="/pages/dashborad/dashborad.html" style="font-size: 13px;">Dashborad</a></li>
+                    <li><i class="fa fa-shopping-cart" style="font-size:17px;color:rgba(148, 5, 5, 0.838);"></i><a
+                            href="/pages/product/product.html" style="font-size: 13px;">Products</a></li>
+                    <li><i class="fa fa-th" style="font-size:17px;color:rgba(148, 5, 5, 0.838);"></i><a
+                            href="/pages/category/category.html" style="font-size: 13px;">Category</a></li>
+                    <li><i class="	fa fa-cart-arrow-down" style="font-size:17px;color:rgba(148, 5, 5, 0.838);"></i><a
+                            href="#">Order</a></li>
+                </ul>
+            </div>
+            <div class="side-bar-center">
+                <div class="header">
+                    <h2 class="head2">POS SYSTEM</h2>
+                </div>
+                <div class="button">
+                    <button class="btn" onclick="filterOpjects('all')">All</button>
+                    <button class="btn" onclick="filterOpjects('drink')">Drink</button>
+                    <button class="btn" onclick="filterOpjects('cookie')">Cookie</button>
+                    <button class="btn" onclick="filterOpjects('fruit')">Fruit</button>
+                </div>
+
+                <div class="content">
+                    <button class="create-new-card" onclick="onAdd()">Add Product</button>
+                    <div class="input-group">
+                        <input type="text" class="form-control" placeholder="search name product..">
+                       
+                    </div>
+                </div>
+                <div class="card-products" id="pills-home" role="piepanel" aria-labelledby="pills-home-pie">
+
+                </div>
+
+            </div>
+            <!-- ======= Dialog ===== -->
+            <div class="dialog_container">
+                <dialog open>
+                    <h1>Add Product</h1>
+                    <div class="product_id input">
+                        <label for="id">ID</label>
+                        <input type="text" name="id" id="id" placeholder="Product id..." maxlength="25">
+                        <p class="error_id error" style="display: none;">Invalid ID*</p>
+                    </div>
+                    <div class="product-name input">
+                        <label for="product-name">Name</label>
+                        <input type="text" name="name" id="name" placeholder="Product Name... " maxlength="25">
+                        <p class="error_name error" style="display: none;">Invalid Name*</p>
+
+                    </div>
+                    <div class="product_price input">
+                        <label for="price">Price</label>
+                        <input type="number" name="price" id="price" min="1" placeholder="Your price ...">
+                        <p class="error_price error" style="display: none;">Invalid Number*</p>
+                    </div>
+                    <div class="input">
+                        <label for="kind-product">category</label>
+                        <select name="category" id="category">
+                            <option disabled selected>category</option>
+                            <option value="drink">Drink</option>
+                            <option value="cookie">Cookie</option>
+                            <option value="fruit">Fruit</option>
+                        </select>
+                        <p class="error_size error" style="display: none;">Choose Size*</p>
+                    </div>
+                    <div class="input">
+                        <label for="quantity">Quantity</label>
+                        <select name="quantity" id="quantity">
+                            <option disabled selected>Number</option>
+                            <option value="5">5</option>
+                            <option value="8">8</option>
+                            <option value="20">20</option>
+                            <option value="12">12</option>
+                            <option value="23">23</option>
+                            <option value="50">50</option>
+                            <option value="50">100</option>
+                            <option value="50">10</option>
+                            <option value="50">30</option>
+                        </select>
+                        <p class="error_size error" style="display: none;">Choose Size*</p>
+                    </div>
+                    <div class="card_button btn_dialog">
+                        <button type="button" onclick="cancel()">Cancel</button>
+                        <button type="button" onclick="addProduct()">Add Product</button>
+                    </div>
+                </dialog>
+            </div>
+
+            <div class="side-bar-right">
+                <div class="header2">
+                    <a href="/index.html"><i class="fa fa-sign-out" id="iconlogout" style="font-size:20px;color:black;"></i></a>
+                    <i class="	fa fa-cart-arrow-down" id="iconcard" style="font-size:20px;color:black;"></i>
+                </div>
+                <div class="box-store-card">
+                    <h3>Current Order</h3>
+                    <hr>
+                    <ul id="order-list" class="list-unstyled">
+                    </ul>
+                    <h4 id="total">Total: <span class="total-price">0</span></h4>
+
+                    <button class="order">Checkout</button>
+                </div>
+                
+
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>
